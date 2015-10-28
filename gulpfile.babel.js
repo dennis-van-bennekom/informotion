@@ -13,6 +13,10 @@ gulp.task('styles', () => {
     .pipe($.less({
     paths: ['.']
     }))
+    .on('error', function(err){
+      console.log(err);
+      this.emit('end');
+    })
     .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
