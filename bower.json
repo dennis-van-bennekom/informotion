@@ -1,0 +1,13 @@
+{
+  "name": "desktop",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "smoothState": "https://github.com/miguel-perez/smoothState.js",
+    "velocity": "~1.2.3"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.2"
+  }
+}

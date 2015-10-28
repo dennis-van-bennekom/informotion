@@ -1,0 +1,26 @@
+.m-scene .scene_element {
+	animation-duration: 1s;
+	transition-timing-function: ease-in;
+	animation-fill-mode: both;
+	.transform(translate3d(0px,0px,0px));
+}
+
+.m-scene .scene_element--fadein {
+	animation-name: fadeIn;
+}
+
+.m-scene.is-exiting .scene_element {
+	animation-direction: alternate-reverse;
+}
+
+/*
+ * Keyframes
+ */
+ @keyframes fadeIn {
+ 	0% { 
+ 		.transform(translate3d(0px,0px,0px) translateY(-100%));
+ 	}
+ 	100% { 
+ 		.transform(translate3d(0px,0px,0px) translateY(0%));
+ 	}
+ }

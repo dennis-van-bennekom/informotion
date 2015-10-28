@@ -1,0 +1,83 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: @basefont;
+	background-color: @grey;
+}
+
+p {
+	font-family: @eltfont;
+	font-size: 1.1em;
+	line-height: 1.7em;
+}
+
+.vertical-aligner {
+	display: table;
+	height: 100vh;
+	width: 100%;
+
+	.aligner-inner {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.aligner-box {
+		max-width: 760px;
+		padding: 40px 20px;
+		margin: 0 auto;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.btn {
+	position: relative;
+	background-color: transparent;
+	overflow: hidden;
+	z-index: 1;
+	font-family: @oltfont;
+	display: inline-block;
+	text-indent: 0.2em;
+	letter-spacing: 0.2em;
+	padding: 0.75rem 1rem;
+	border: 1px solid @black;
+	text-transform: uppercase;
+	transition: 0.2s all ease-in-out;
+
+	&.light {
+		color: @white;
+		border: 1px solid @white;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+		transition: 0.2s all ease-out;
+		left: -100%;
+		top: 115%;
+		width: 150%;
+		height: 300%;
+		background-color: @white;
+		.transform(rotate(35deg));
+	}
+
+	&:hover {
+		color: @black;
+		background-color: @white;
+
+		&:after {
+			top: -50%;
+			left: -25%;
+			opacity: 1;
+		}
+	}
+}

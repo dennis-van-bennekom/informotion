@@ -1,0 +1,68 @@
+.clearfix() {
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+.bg-cover {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.text-shadow {
+	text-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+}
+
+// From the bottom up
+.gradient(@top:50%, @opacity:0.7) {
+	position: relative;
+	&:after {
+		content: '';
+		background-image: url('../images/gradient.png');
+		background-size: 100% 100%;
+		position: absolute;
+		top: @top;
+		opacity: @opacity;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+.transform( @params ) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-ms-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transition(
+	@what : all,
+	@length : 0.15s,
+	@easing : ease-in-out
+	) {
+	-webkit-transition: @what @length @easing;
+	-moz-transition: @what @length @easing;
+	-o-transition: @what @length @easing;
+	transition: @what @length @easing;
+}
+
+.alt-transition( @params ) {
+	-webkit-transition: @params;
+	-moz-transition: @params;
+	-o-transition: @params;
+	transition: @params;
+}
+
+.resize( @direction ) {
+	-webkit-resize: @direction;
+	-moz-resize: @direction;
+	resize: @direction;
+}

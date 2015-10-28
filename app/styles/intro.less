@@ -1,0 +1,58 @@
+.intro {
+	color: @white;
+	background: #ace64d;
+	background: -moz-linear-gradient(top, #ace64d 0%, #71b936 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ace64d), color-stop(100%,#71b936));
+	background: -webkit-linear-gradient(top, #ace64d 0%,#71b936 100%);
+	background: -o-linear-gradient(top, #ace64d 0%,#71b936 100%);
+	background: -ms-linear-gradient(top, #ace64d 0%,#71b936 100%);
+	background: linear-gradient(to bottom, #ace64d 0%,#71b936 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ace64d', endColorstr='#71b936',GradientType=0 );
+	position: relative;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.2;
+		width: 100%;
+		height: 100%;
+		background-image: url(http://orig01.deviantart.net/6df5/f/2012/102/e/4/world_map_template___steampunk_victorian_style_by_floppybootstomp-d4vvz77.jpg);
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.intro-title {
+		.font52();
+		line-height: 1.3em;
+		margin: 10px 0;
+		font-weight: 900;
+	}
+
+	.intro-small {
+		display: block;
+		font-family: @altfont;
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.5em;
+		text-indent: 0.5em;
+		font-size: 18px;
+	}
+
+	.intro-header {
+		margin-bottom: 30px;
+	}
+
+	.intro-text {
+		margin: 0 auto;
+		max-width: 620px;
+		margin-bottom: 30px;
+	}
+
+	.btn {
+		&:hover {
+			color: #71b936;
+		}
+	}
+}
