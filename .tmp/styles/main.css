@@ -464,7 +464,7 @@ sub {
   vertical-align: baseline;
 }
 legend {
-  color: #000;
+  color: #000000;
 }
 .clearfix {
   *zoom: 1;
@@ -1516,8 +1516,8 @@ p {
   transition: 0.2s all ease-in-out;
 }
 .btn.light {
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 .btn:after {
   content: "";
@@ -1529,12 +1529,13 @@ p {
   top: 115%;
   width: 150%;
   height: 300%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+  -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
 .btn:hover {
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .btn:hover:after {
   top: -50%;
@@ -1542,30 +1543,51 @@ p {
   opacity: 1;
 }
 .m-scene .scene_element {
-  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   transition-timing-function: ease-in;
-  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
 }
 .m-scene .scene_element--fadein {
-  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
 .m-scene.is-exiting .scene_element {
-  animation-direction: alternate-reverse;
+  -webkit-animation-direction: alternate-reverse;
+          animation-direction: alternate-reverse;
 }
 /*
  * Keyframes
  */
-@keyframes fadeIn {
+@-webkit-keyframes fadeIn {
   0% {
-    transform: translate3d(0px, 0px, 0px) translateY(-100%);
+    opacity: 0;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-10%);
+    transform: translate3d(0px, 0px, 0px) translateY(-10%);
   }
   100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
+    transform: translate3d(0px, 0px, 0px) translateY(0%);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-10%);
+    transform: translate3d(0px, 0px, 0px) translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
     transform: translate3d(0px, 0px, 0px) translateY(0%);
   }
 }
 .intro {
-  color: #FFFFFF;
+  color: #ffffff;
   background: #ace64d;
   background: linear-gradient(to bottom, #ace64d 0%, #71b936 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ace64d', endColorstr='#71b936', GradientType=0);
