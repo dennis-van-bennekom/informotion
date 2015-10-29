@@ -1469,6 +1469,7 @@ Responsive code
 ---------------------------------------------------------------------------------------------------- */
 html {
   box-sizing: border-box;
+  background-color: #171d25;
 }
 *,
 *:before,
@@ -1476,8 +1477,22 @@ html {
   box-sizing: inherit;
 }
 body {
-  font-family: "Merriweather", serif;
-  background-color: #303030;
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  color: #ffffff;
+  position: relative;
+}
+body:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.05;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/dotted-pattern.png);
+  background-size: 113px;
 }
 p {
   font-family: "Source Sans Pro", sans-serif;
@@ -1486,7 +1501,6 @@ p {
 }
 .vertical-aligner {
   display: table;
-  height: 100vh;
   width: 100%;
 }
 .vertical-aligner .aligner-inner {
@@ -1503,21 +1517,28 @@ p {
 }
 .btn {
   position: relative;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.05);
   overflow: hidden;
   z-index: 1;
   font-family: "Oswald", sans-serif;
   display: inline-block;
   text-indent: 0.2em;
   letter-spacing: 0.2em;
-  padding: 0.75rem 1rem;
-  border: 1px solid #000000;
+  padding: 1.25rem 2rem;
+  border: 1px solid #171d25;
   text-transform: uppercase;
   transition: 0.2s all ease-in-out;
+  -webkit-transform: skew(-10deg);
+          transform: skew(-10deg);
+}
+.btn .button-text {
+  display: block;
+  -webkit-transform: skew(10deg);
+          transform: skew(10deg);
 }
 .btn.light {
   color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid #acbed6;
 }
 .btn:after {
   content: "";
@@ -1529,13 +1550,14 @@ p {
   top: 115%;
   width: 150%;
   height: 300%;
-  background-color: #ffffff;
+  background-color: #7ed321;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
 .btn:hover {
-  color: #000000;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #7ed321;
+  border: 1px solid #7ed321;
 }
 .btn:hover:after {
   top: -50%;
@@ -1586,38 +1608,37 @@ p {
     transform: translate3d(0px, 0px, 0px) translateY(0%);
   }
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-10%);
+    transform: translate3d(0px, 0px, 0px) translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
+    transform: translate3d(0px, 0px, 0px) translateY(0%);
+  }
+}
 .intro {
   color: #ffffff;
-  background: #ace64d;
-  background: linear-gradient(to bottom, #ace64d 0%, #71b936 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ace64d', endColorstr='#71b936', GradientType=0);
   position: relative;
-}
-.intro:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.2;
-  width: 100%;
-  height: 100%;
-  background-image: url(http://orig01.deviantart.net/6df5/f/2012/102/e/4/world_map_template___steampunk_victorian_style_by_floppybootstomp-d4vvz77.jpg);
-  background-size: cover;
+  height: 100vh;
 }
 .intro .intro-title {
-  font-size: 52px;
-  line-height: 1.3em;
-  margin: 10px 0;
+  text-transform: uppercase;
+  font-size: 82px;
+  line-height: 1em;
+  margin: 20px 0;
   font-weight: 900;
 }
-@media (max-width: 767px) {
-  .intro .intro-title {
-    font-size: 32px;
-  }
+.intro .intro-title .highlight {
+  color: #7ed321;
 }
 .intro .intro-small {
   display: block;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Oswald", sans-serif;
+  color: #acbed6;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.5em;
@@ -1628,10 +1649,35 @@ p {
   margin-bottom: 30px;
 }
 .intro .intro-text {
+  color: #acbed6;
   margin: 0 auto;
-  max-width: 620px;
+  max-width: 520px;
   margin-bottom: 30px;
 }
-.intro .btn:hover {
-  color: #71b936;
+.vis-wrapper {
+  padding: 20px;
+}
+.vis-meta .vis-title {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+@media (max-width: 767px) {
+  .vis-meta .vis-title {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .vis-meta .vis-title {
+    font-size: 20px;
+  }
+}
+.vis-meta .vis-subtitle {
+  font-family: "Oswald", sans-serif;
+  color: #acbed6;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 12px;
 }
