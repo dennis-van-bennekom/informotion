@@ -1469,7 +1469,7 @@ Responsive code
 ---------------------------------------------------------------------------------------------------- */
 html {
   box-sizing: border-box;
-  background-color: #171d25;
+  background-color: #171D25;
 }
 *,
 *:before,
@@ -1479,7 +1479,7 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
-  color: #ffffff;
+  color: #FFFFFF;
   position: relative;
 }
 body:after {
@@ -1525,20 +1525,23 @@ p {
   text-indent: 0.2em;
   letter-spacing: 0.2em;
   padding: 1.25rem 2rem;
-  border: 1px solid #171d25;
+  border: 1px solid #171D25;
   text-transform: uppercase;
   transition: 0.2s all ease-in-out;
-  -webkit-transform: skew(-10deg);
-          transform: skew(-10deg);
+  transform: skew(-10deg);
 }
 .btn .button-text {
   display: block;
-  -webkit-transform: skew(10deg);
-          transform: skew(10deg);
+  transform: skew(10deg);
 }
 .btn.light {
+<<<<<<< HEAD
   color: #ffffff;
   border: 1px solid #acbed6;
+=======
+  color: #FFFFFF;
+  border: 1px solid #ACBED6;
+>>>>>>> 0df14e9b376fc4e2e3cd73335e54f0a890cc1408
 }
 .btn:after {
   content: "";
@@ -1550,6 +1553,7 @@ p {
   top: 115%;
   width: 150%;
   height: 300%;
+<<<<<<< HEAD
   background-color: #7ed321;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
@@ -1558,6 +1562,15 @@ p {
   color: #ffffff;
   background-color: #7ed321;
   border: 1px solid #7ed321;
+=======
+  background-color: #7ED321;
+  transform: rotate(35deg);
+}
+.btn:hover {
+  color: #FFFFFF;
+  background-color: #7ED321;
+  border: 1px solid #7ED321;
+>>>>>>> 0df14e9b376fc4e2e3cd73335e54f0a890cc1408
 }
 .btn:hover:after {
   top: -50%;
@@ -1611,17 +1624,19 @@ p {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-10%);
     transform: translate3d(0px, 0px, 0px) translateY(-10%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
     transform: translate3d(0px, 0px, 0px) translateY(0%);
   }
 }
 .intro {
+<<<<<<< HEAD
   color: #ffffff;
+=======
+  color: #FFFFFF;
+>>>>>>> 0df14e9b376fc4e2e3cd73335e54f0a890cc1408
   position: relative;
   height: 100vh;
 }
@@ -1633,12 +1648,12 @@ p {
   font-weight: 900;
 }
 .intro .intro-title .highlight {
-  color: #7ed321;
+  color: #7ED321;
 }
 .intro .intro-small {
   display: block;
   font-family: "Oswald", sans-serif;
-  color: #acbed6;
+  color: #ACBED6;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.5em;
@@ -1649,7 +1664,7 @@ p {
   margin-bottom: 30px;
 }
 .intro .intro-text {
-  color: #acbed6;
+  color: #ACBED6;
   margin: 0 auto;
   max-width: 520px;
   margin-bottom: 30px;
@@ -1675,11 +1690,23 @@ p {
 }
 .vis-meta .vis-subtitle {
   font-family: "Oswald", sans-serif;
-  color: #acbed6;
+  color: #ACBED6;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.5em;
   font-size: 12px;
+}
+.timeline {
+  position: relative;
+  height: 2rem;
+  overflow: hidden;
+}
+.timeline-inner {
+  transition: top 0.25s linear;
+  position: absolute;
+}
+.timeline .year {
+  line-height: 2rem;
 }
 html,
 body {

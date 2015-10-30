@@ -90,7 +90,7 @@ var data = [
     ]
   },
   {
-    country: 'Frankrijk',
+    country: 'Frankrijkhahah dit is een lange naam',
     year: '2014',
     years: [
       Math.random() * 80,
@@ -150,7 +150,12 @@ var data = [
 var WIDTH = 720,
     HEIGHT = 720;
 
+var selected = [];
+var maxSelected = 2;
+
 var currentYear = 0;
+
+var timelineElement = $('.timeline-inner');
 
 var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
 
@@ -209,13 +214,62 @@ var country = gCountries.selectAll('.country')
     .data(data)
       .enter().append('circle')
     .attr('class', 'country')
-    .attr('r', 10)
-    .attr('cy', 0)
-    .attr('cx', function(d, i) { return rd(d.years[currentYear]) })
-    .attr('transform', function(d, i) { return 'rotate(' + (d.s / data.length * 360 - 90) + ')' })
+    .attr('r', 20)
+    .attr('cy', function(d, i) {
+      var degrees = d.s / data.length * 360;
+      var radians = degrees * Math.PI / 180;
+
+      return rd(d.years[currentYear]) * Math.sin(radians);
+    })
+    .attr('cx', function(d, i) {
+      var degrees = d.s / data.length * 360;
+      var radians = degrees * Math.PI / 180;
+
+      return rd(d.years[currentYear]) * Math.cos(radians);
+    })
     .style('fill', '#fff')
     .style('stroke', '#fff')
-    .style('opacity', 0.9);
+    .style('opacity', 0.9)
+    .on('mouseenter', function(d, i) {
+      var cx = $(this).attr('cx');
+      var cy = $(this).attr('cy');
+      var r = $(this).attr('r');
+
+      var label = d3.select(this.parentNode)
+          .append('text')
+          .attr('class', 'label')
+          .style('text-anchor', 'middle')
+          .style('fill', '#fff')
+          .text(function() { return d.country })
+          .attr('dx', cx)
+          .attr('dy', cy - r - 10)
+          .style('opacity', 0)
+          .transition()
+          .duration(200)
+          .style('opacity', 1);
+    })
+    .on('mouseleave', function(d, i) {
+      d3.selectAll('.label')
+        .transition()
+        .duration(200)
+        .style('opacity', 0)
+        .remove();
+    })
+    .on('click', function(d, i) {
+      if (selected.indexOf(i) >= 0) {
+        console.log("nee nee");
+      } else {
+        select(d, i);
+      }
+    });
+
+function select(element, index) {
+  if (selected.length < maxSelected) {
+    selected.push(index);
+
+    console.log(selected);
+  }
+}
 
 d3.select('.timeline')
     .on('input', function() {
@@ -226,30 +280,63 @@ var canScroll = true;
 
 $(document).mousewheel(function(e) {
 
-  var direction = e.deltaY > 0 ? 1 : -1;
-  
-  console.log(direction);
+  var direction = e.deltaY > 0 ? -1 : 1;
 
+  scroll(direction, 300);
+});
+
+$(document).keydown(function(e) {
+  switch(e.which) {
+    case 38:
+      scroll(-1, 150);
+      break;
+    case 40:
+      scroll(1, 150);
+      break;
+  }
+});
+
+$(document).keyup(function(e) {
+  if (e.which === 38 || e.which === 40) {
+    canScroll = true;
+  }
+});
+
+function scroll(direction, speed) {
   if (canScroll) {
     canScroll = false;
     setTimeout(function() {
       canScroll = true;
-    }, 250);
+    }, speed);
 
     changeYear(currentYear + direction);
-
-    console.log(currentYear);
   }
-});
+}
 
 function changeYear(year) {
+  d3.selectAll('.label')
+    .remove();
+
   currentYear = year;
 
   if (currentYear < 0) { currentYear = 0; }
   if (currentYear > 21) {currentYear = 21; }
 
+  timelineElement.css('top', '-' + currentYear * 100 + '%');
+
   d3.selectAll('.country')
     .transition()
     .duration(250)
-    .attr('cx', function(d, i) { return rd(d.years[currentYear]) });
+    .attr('cy', function(d, i) {
+      var degrees = d.s / data.length * 360;
+      var radians = degrees * Math.PI / 180;
+
+      return rd(d.years[currentYear]) * Math.sin(radians);
+    })
+    .attr('cx', function(d, i) {
+      var degrees = d.s / data.length * 360;
+      var radians = degrees * Math.PI / 180;
+
+      return rd(d.years[currentYear]) * Math.cos(radians);
+    })
 };
