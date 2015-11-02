@@ -67,7 +67,7 @@ d3.csv('scripts/data.csv', function(d) {
 
   var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
   var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 50]);
-  var yearScale = d3.scale.linear().domain([0, 22]).range([0, 100]);
+  var yearScale = d3.scale.linear().domain([0, 22]).range([5, 95]);
 
   data.forEach(function(d, i) {
     d.s = i;
@@ -187,7 +187,6 @@ d3.csv('scripts/data.csv', function(d) {
   function select(element, index) {
     if (selected.length < maxSelected) {
       selected.push(index);
-console.log(data[index]);
       
       d3.select(element)
           .style('fill', 'red');
@@ -265,10 +264,11 @@ console.log(data[index]);
 
         return rd(d.percentage[currentYear]) * Math.cos(radians);
       });
-      console.log(yearScale(currentYear));
 
-      
+
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
+    $('.timeline-year').css('left', yearScale(currentYear) - 1.5 + '%');
+    $('.timeline-year').text(1990 + currentYear);
   };
 
   var countryDropdown = $('.country-dropdown');
@@ -284,5 +284,25 @@ console.log(data[index]);
   });
 
   countryDropdown.combobox();
+
+  var timeline = $('.timeline');
+
+  timeline.on('click', function(e) {
+    var x = e.clientX;
+    var width = window.innerWidth - window.innerWidth / 10 - 300;
+    x -= window.innerWidth / 20;
+
+    var year = Math.round(x / width * 22);
+
+    changeYear(year);
+  });
+
+  $('.button-prev').on('click', function() {
+    changeYear(currentYear - 1);
+  });
+
+  $('.button-next').on('click', function() {
+    changeYear(currentYear + 1);
+  });
 });
 
