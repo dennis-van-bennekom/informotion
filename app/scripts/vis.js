@@ -184,7 +184,6 @@ d3.csv('scripts/data.csv', function(d) {
   function select(element, index) {
     if (selected.length < maxSelected) {
       selected.push(index);
-console.log(data[index]);
       
       d3.select(element)
           .style('fill', 'red');
@@ -262,7 +261,6 @@ console.log(data[index]);
 
         return rd(d.percentage[currentYear]) * Math.cos(radians);
       });
-      console.log(yearScale(currentYear));
 
 
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
@@ -283,5 +281,17 @@ console.log(data[index]);
   });
 
   countryDropdown.combobox();
+
+  var timeline = $('.timeline');
+
+  timeline.on('mousedown', function(e) {
+    var x = e.clientX;
+    var width = window.innerWidth - window.innerWidth / 10;
+    x -= window.innerWidth / 20;
+
+    var year = Math.round(x / width * 22);
+
+    changeYear(year);
+  });
 });
 
