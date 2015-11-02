@@ -2,12 +2,25 @@
 	color: @white;
 	position: relative;
 	height: 100vh;
+	background-size: cover;
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	text-align: center;
+
+	.intro-small {
+		display: block;
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.5em;
+		text-indent: 0.5em;
+		font-size: 18px;
+		margin-bottom: 25px;
+	}
 
 	.intro-title {
-		text-transform: uppercase;
-		font-size: 82px;
-		line-height: 1em;
-		margin: 20px 0;
+		font-size: 7vw;
+		line-height: 0.9em;
+		letter-spacing: -0.05em;
 		font-weight: 900;
 
 		.highlight {
@@ -15,25 +28,14 @@
 		}
 	}
 
-	.intro-small {
-		display: block;
-		font-family: @altfont;
-		color: @lightblue;
-		line-height: 1;
-		text-transform: uppercase;
-		letter-spacing: 0.5em;
-		text-indent: 0.5em;
-		font-size: 18px;
-	}
-
 	.intro-header {
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 
-	.intro-text {
-		color: @lightblue;
+	.intro-text {	
+		max-width: 500px;
 		margin: 0 auto;
-		max-width: 520px;
+		font-size: 15px;
 		margin-bottom: 30px;
 	}
 }

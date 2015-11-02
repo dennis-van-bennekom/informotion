@@ -1,7 +1,8 @@
 html {
 	box-sizing: border-box;
-	background-color: @darkblue;
+	background-color: #171d25;
 }
+
 *, *:before, *:after {
 	box-sizing: inherit;
 }
@@ -18,16 +19,16 @@ body {
 		top: 0;
 		left: 0;
 		z-index: -1;
-		opacity: 0.05;
+		opacity: 0.1;
 		width: 100%;
 		height: 100%;
 		background-image: url(../images/dotted-pattern.png);
-		background-size: 113px;
+		background-size: 60px;
 	}
 }
 
 p {
-	font-family: @textfont;
+	font-family: @altfont;
 	font-size: 1.1em;
 	line-height: 1.7em;
 }
@@ -42,7 +43,7 @@ p {
 	}
 
 	.aligner-box {
-		max-width: 760px;
+		max-width: 1020px;
 		padding: 40px 20px;
 		margin: 0 auto;
 	}
@@ -57,24 +58,18 @@ p {
 	background-color: rgba(255,255,255,0.05);
 	overflow: hidden;
 	z-index: 1;
-	font-family: @altfont;
 	display: inline-block;
 	text-indent: 0.2em;
 	letter-spacing: 0.2em;
 	padding: 1.25rem 2rem;
-	border: 1px solid @darkblue;
+	border: 1px solid @fcolor;
 	text-transform: uppercase;
 	transition: 0.2s all ease-in-out;
-	transform: skew(-10deg);
-
-	.button-text {
-		display: block;
-		transform: skew(10deg);
-	}
+	border-radius: 3px;
 
 	&.light {
 		color: @white;
-		border: 1px solid @lightblue;
+		border: 1px solid @accent;
 	}
 
 	&:after {

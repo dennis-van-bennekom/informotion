@@ -1,22 +1,23 @@
 .vis-wrapper {
-	padding: 20px;
+	padding: 20px 25px;
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 .vis-meta {
 
 	.vis-title {
-		text-transform: uppercase;
-		font-weight: 900;
-		.font24();
-		margin-bottom: 4px;
+		letter-spacing: -0.02em;
+		font-weight: 600;
+		.font18();
+		margin-bottom: 2px;
 	}
 
 	.vis-subtitle {
-		font-family: @altfont;
-		color: @lightblue;
-		line-height: 1;
 		text-transform: uppercase;
-		letter-spacing: 0.5em;
+		line-height: 1;
+		letter-spacing: 0.2em;
 		font-size: 12px;
 	}
 }
@@ -25,13 +26,64 @@
 
 }
 
-.vis-info-box {
+.vis-sidebar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 250px;
+	height: 100vh;
+	color: #323A54;
+	background-color: #E0E9F0;
 
+	.sidebar-inner {
+		padding: 30px;
+		padding-top: 100px;
+		position: relative;
+	}
 }
 
-.vis-country-meta-stats {
 
+.country-stats {
+	.country-name {
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
 }
+
+.meta-holder {
+
+	.meta-stat {
+		margin: 20px 0;
+
+		.meta-title {
+			font-family: @altfont;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			font-size: 14px;
+			margin-bottom: 2px;
+		}
+
+		.number {
+			font-family: @altfont;
+			.font22();
+			display: inline;
+			letter-spacing: 0.02em;
+			font-weight: 500;
+
+		}
+
+		.unit {
+			font-family: @altfont;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			display: inline;
+			font-size: 11px;
+			margin-left: 2px;
+			opacity: 0.8;
+		}
+	}
+}
+
 
 .timeline {
 	position: relative;
