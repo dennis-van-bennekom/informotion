@@ -68,7 +68,7 @@ d3.csv('scripts/data.csv', function(d) {
 
   var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
   var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 50]);
-  var yearScale = d3.scale.linear().domain([0, 22]).range([0, 100]);
+  var yearScale = d3.scale.linear().domain([0, 22]).range([5, 95]);
 
   data.forEach(function(d, i) {
     d.s = i;
@@ -264,8 +264,10 @@ console.log(data[index]);
       });
       console.log(yearScale(currentYear));
 
-      
+
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
+    $('.timeline-year').css('left', yearScale(currentYear) - 1.5 + '%');
+    $('.timeline-year').text(1990 + currentYear);
   };
 
   var countryDropdown = $('.country-dropdown');
