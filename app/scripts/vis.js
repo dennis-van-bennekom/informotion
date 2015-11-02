@@ -52,22 +52,22 @@ d3.csv('scripts/data.csv', function(d) {
   }
   
   var agreements = [
-    { name: 'Europe Goal (20%)', value: '20' },
-    { name: 'Nederland (14%)', value: '14' },
-    { name: 'Een of ander doel (5%)', 'value': '5' }
+    { name: '0%', value: '0' },
+    { name: 'Europe Target by 2020 - 20%', value: '20' },
+    { name: '50%', 'value': '40' }
   ];
 
-  var WIDTH = 1000,
-      HEIGHT = 1000;
+  var HEIGHT = 900,
+      WIDTH = HEIGHT;
 
   var selected = [];
   var maxSelected = 2;
 
   var currentYear = 0;
 
-  var timelineElement = $('.timeline-inner');
-
   var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
+  var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 50]);
+  var yearScale = d3.scale.linear().domain([0, 22]).range([0, 100]);
 
   data.forEach(function(d, i) {
     d.s = i;
@@ -87,7 +87,12 @@ d3.csv('scripts/data.csv', function(d) {
 
   var dot = g.append('circle')
       .attr('r', '1px')
-      .style('fill', "#fff");
+      //.style('fill', "#fff");
+
+  var centerText = g.append('text')
+      .attr('text-anchor', 'middle')
+      .text('100%')
+      .attr('class', 'center-text')
 
   var gAgreements = g.append('g')
       .attr('class', 'agreements');
@@ -98,9 +103,9 @@ d3.csv('scripts/data.csv', function(d) {
       .attr('id', function(d, i) { return 'agreementsPath' + i })
       .attr('class', 'agreementsPath')
       .attr('d', arc)
-      .style('stroke', '#fff')
-      .style('fill', 'none')
-      .style('opacity', '0.6');
+      //.style('stroke', '#fff')
+      //.style('fill', 'none')
+      //.style('opacity', '0.6');
 
   gAgreements.selectAll('.agreementsLabels')
       .data(agreements)
@@ -108,10 +113,9 @@ d3.csv('scripts/data.csv', function(d) {
       .attr('class', 'agreementsLabel')
       .attr('dy', -5)
       .attr('dx', 0)
-      .style('fill', '#fff')
-      .style('font-size', '11px')
+      //.style('fill', '#fff')
+      //.style('font-size', '11px')
       .style('text-anchor', 'middle')
-      .style('font-family', 'sans-serif')
     .append('textPath')
       .attr('xlink:href', function(d, i) { return '#agreementsPath' + i; })
       .attr('startOffset', '50%')
@@ -124,7 +128,7 @@ d3.csv('scripts/data.csv', function(d) {
       .data(data)
         .enter().append('circle')
       .attr('class', 'country')
-      .attr('r', 5)
+      .attr('r', function(d, i) { return inwoners(d.populatie[currentYear]); })
       .attr('cy', function(d, i) {
         var degrees = d.s / data.length * 360;
         var radians = degrees * Math.PI / 180;
@@ -137,9 +141,9 @@ d3.csv('scripts/data.csv', function(d) {
 
         return rd(d.percentage[currentYear]) * Math.cos(radians);
       })
-      .style('fill', '#fff')
-      .style('stroke', '#fff')
-      .style('opacity', 0.9)
+      //.style('fill', '#fff')
+      //.style('stroke', '#fff')
+      //.style('opacity', 0.9)
       .on('mouseenter', function(d, i) {
         var cx = $(this).attr('cx');
         var cy = $(this).attr('cy');
@@ -183,7 +187,8 @@ d3.csv('scripts/data.csv', function(d) {
   function select(element, index) {
     if (selected.length < maxSelected) {
       selected.push(index);
-
+console.log(data[index]);
+      
       d3.select(element)
           .style('fill', 'red');
     }
@@ -245,9 +250,6 @@ d3.csv('scripts/data.csv', function(d) {
 
     if (currentYear < 0) { currentYear = 0; }
     if (currentYear > 22) {currentYear = 22; }
-
-    timelineElement.css('top', '-' + currentYear * 100 + '%');
-
     d3.selectAll('.country')
       .transition()
       .duration(250)
@@ -262,7 +264,25 @@ d3.csv('scripts/data.csv', function(d) {
         var radians = degrees * Math.PI / 180;
 
         return rd(d.percentage[currentYear]) * Math.cos(radians);
-      })
+      });
+      console.log(yearScale(currentYear));
+
+      
+    $('.timeline-current').css('width', yearScale(currentYear) + '%');
   };
+
+  var countryDropdown = $('.country-dropdown');
+
+  data.map(function(d, i) {
+    var country = d.land;
+
+    var newElement = document.createElement('option');
+    newElement.value = i;
+    newElement.innerHTML = country;
+
+    countryDropdown.append(newElement);
+  });
+
+  countryDropdown.combobox();
 });
 

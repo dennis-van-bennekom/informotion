@@ -10,6 +10,7 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -24,35 +25,64 @@
 </head>
 <body class="body">
   <div id="main-wrapper" class="m-scene">
+    <div class="timeline">
+      <div class="timeline-current"></div>
+    </div>
+
     <div class="vis"></div>
     
-    <div class="timeline">
-      <div class="timeline-inner">
-        <div class="year">1990</div>
-        <div class="year">1991</div>
-        <div class="year">1992</div>
-        <div class="year">1993</div>
-        <div class="year">1994</div>
-        <div class="year">1995</div>
-        <div class="year">1996</div>
-        <div class="year">1997</div>
-        <div class="year">1998</div>
-        <div class="year">1999</div>
-        <div class="year">2000</div>
-        <div class="year">2001</div>
-        <div class="year">2002</div>
-        <div class="year">2003</div>
-        <div class="year">2004</div>
-        <div class="year">2005</div>
-        <div class="year">2006</div>
-        <div class="year">2007</div>
-        <div class="year">2008</div>
-        <div class="year">2009</div>
-        <div class="year">2010</div>
-        <div class="year">2011</div>
-        <div class="year">2012</div>
+    <!-- <div class="sidebar">
+      <div class="country-dropdown-container">
+        <select class="country-dropdown form-control js-country-1" />
       </div>
-    </div>
+      <div class="numbers-container">
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-wind-1"></div>
+          <div class="unit">Terajoule</div>
+        </div>
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-water-1"></div>
+          <div class="unit">Terajoule</div>
+        </div>
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-solar-1"></div>
+          <div class="unit">Terajoule</div>
+        </div>
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-green-1"></div>
+          <div class="unit">Green energy</div>
+        </div>
+      </div>
+      <div class="country-dropdown-container">
+        <select class="country-dropdown form-control js-country-2" />
+      </div>
+      <div class="numbers-container">
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-wind-2"></div>
+          <div class="unit">Terajoule</div>
+        </div>
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-water-2"></div>
+          <div class="unit">Terajoule</div>
+        </div>
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-solar-2"></div>
+          <div class="unit">Terajoule</div>
+        </div>
+        <div class="number-container">
+          <div class="icon"></div>
+          <div class="number js-green-2"></div>
+          <div class="unit">Green energy</div>
+        </div>
+      </div>
+    </div> -->
   </div>
 </div>
 
@@ -68,7 +98,9 @@
 <script src="/bower_components/hammerjs/hammer.js"></script>
 <script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
 <script src="/bower_components/underscore/underscore.js"></script>
+<script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
 <!-- endbower -->
+<script src="/bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/main.js -->

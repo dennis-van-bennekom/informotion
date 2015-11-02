@@ -1,6 +1,5 @@
 .m-scene .scene_element {
 	animation-fill-mode: both;
-	.transform(translate3d(0px,0px,0px));
 }
 
 .m-scene .scene_element--fadein {
@@ -22,6 +21,13 @@
 	animation-delay: 200ms;
 }
 
+.m-scene .scene_element--fadeinup {
+	animation-duration: 500ms;
+	animation-name: fadeInUp;
+	transition-timing-function: ease-out;
+	animation-delay: 200ms;
+}
+
 .m-scene.is-exiting .scene_element {
 	animation-direction: alternate-reverse;
 }
@@ -29,32 +35,43 @@
 @keyframes fadeIn {
 	0% { 
 		opacity: 0;
-		.transform(translate3d(0px,0px,0px) translateY(-5%));
+		.transform(translateY(-5%));
 	}
 	100% { 
 		opacity: 1;
-		.transform(translate3d(0px,0px,0px) translateY(0%));
+		.transform(translateY(0%));
 	}
 }
 
 @keyframes fadeInLeft {
 	0% { 
 		opacity: 0;
-		.transform(translate3d(0px,0px,0px) translateX(-80%));
+		.transform(translateX(-100%));
 	}
 	100% { 
 		opacity: 1;
-		.transform(translate3d(0px,0px,0px) translateY(0%));
+		.transform(translateX(0%));
 	}
 }
 
 @keyframes fadeInRight {
 	0% { 
 		opacity: 0;
-		.transform(translate3d(0px,0px,0px) translateX(40%));
+		.transform(translateX(80%));
 	}
 	100% { 
 		opacity: 1;
-		.transform(translate3d(0px,0px,0px) translateY(0%));
+		.transform(translateX(0%));
+	}
+}
+
+@keyframes fadeInUp {
+	0% { 
+		opacity: 0;
+		.transform(translateY(80%));
+	}
+	100% { 
+		opacity: 1;
+		.transform(translateY(0%));
 	}
 }

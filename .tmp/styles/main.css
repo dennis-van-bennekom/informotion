@@ -1487,35 +1487,37 @@ Responsive code
 ---------------------------------------------------------------------------------------------------- */
 html {
   box-sizing: border-box;
-  background: #1da4f3;
-  background: linear-gradient(45deg, #1da4f3 0%, #0d86ec 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1da4f3', endColorstr='#0d86ec', GradientType=1);
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 body {
   font-family: "Rubik", sans-serif;
-  min-height: 100vh;
   color: #ffffff;
   position: relative;
+  background: #1da4f3;
+  background: linear-gradient(45deg, #1da4f3 0%, #0d86ec 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1da4f3', endColorstr='#0d86ec', GradientType=1);
 }
-body:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.1;
-  width: 100%;
+#main-wrapper {
   height: 100%;
-  background-image: url(../images/dotted-pattern.png);
-  background-size: 60px;
 }
 p {
   line-height: 1.6em;
+}
+.hidden {
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
 }
 .vertical-aligner {
   display: table;
@@ -1578,11 +1580,12 @@ p {
   left: -25%;
   opacity: 1;
 }
+.country-dropdown {
+  color: #000;
+}
 .m-scene .scene_element {
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px);
 }
 .m-scene .scene_element--fadein {
   -webkit-animation-duration: 500ms;
@@ -1607,6 +1610,15 @@ p {
   -webkit-animation-delay: 200ms;
           animation-delay: 200ms;
 }
+.m-scene .scene_element--fadeinup {
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+  -webkit-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+  transition-timing-function: ease-out;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
 .m-scene.is-exiting .scene_element {
   -webkit-animation-direction: alternate-reverse;
           animation-direction: alternate-reverse;
@@ -1614,73 +1626,97 @@ p {
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-5%);
-    transform: translate3d(0px, 0px, 0px) translateY(-5%);
+    -webkit-transform: translateY(-5%);
+    transform: translateY(-5%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
-    transform: translate3d(0px, 0px, 0px) translateY(0%);
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }
 }
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-5%);
-    transform: translate3d(0px, 0px, 0px) translateY(-5%);
+    -webkit-transform: translateY(-5%);
+    transform: translateY(-5%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
-    transform: translate3d(0px, 0px, 0px) translateY(0%);
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }
 }
 @-webkit-keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateX(-80%);
-    transform: translate3d(0px, 0px, 0px) translateX(-80%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
-    transform: translate3d(0px, 0px, 0px) translateY(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
   }
 }
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateX(-80%);
-    transform: translate3d(0px, 0px, 0px) translateX(-80%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
-    transform: translate3d(0px, 0px, 0px) translateY(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
   }
 }
 @-webkit-keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateX(40%);
-    transform: translate3d(0px, 0px, 0px) translateX(40%);
+    -webkit-transform: translateX(80%);
+    transform: translateX(80%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
-    transform: translate3d(0px, 0px, 0px) translateY(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
   }
 }
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateX(40%);
-    transform: translate3d(0px, 0px, 0px) translateX(40%);
+    -webkit-transform: translateX(80%);
+    transform: translateX(80%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
-    transform: translate3d(0px, 0px, 0px) translateY(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(80%);
+    transform: translateY(80%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(80%);
+    transform: translateY(80%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }
 }
 .intro {
@@ -1715,7 +1751,7 @@ p {
   font-size: 15px;
   margin-bottom: 30px;
 }
-.vis-wrapper {
+.vis-wrap {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -1725,13 +1761,40 @@ p {
   width: calc(100% - 300px);
   background-color: #f0f9ff;
 }
-.vis-container {
-  *zoom: 1;
+.vis-wrap .vis-wrap-inner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
-.vis-container:after {
-  content: " ";
-  display: table;
-  clear: both;
+.vis-wrap .vis-wrap-inner .offset {
+  height: 3000px;
+}
+.timeline-container {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+}
+.timeline {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  right: 300px;
+  height: 16px;
+  background-color: #B9D5F0;
+}
+.timeline-current {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  transition: 0.3s width;
+  background-color: #118dee;
 }
 .sidebar {
   position: absolute;
@@ -1754,18 +1817,24 @@ p {
   height: 300px;
   background-color: #ffffff;
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.country {
+  fill: #118dee;
+  opacity: 0.8;
 }
-body > div {
-  height: 100%;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+.vis svg {
+  display: block;
+  margin: 0 auto;
 }
-.timeline {
-  margin: 0 10px;
-  width: 700px;
+.center-text {
+  font-family: "gibold", "Futura", "Poppins", sans-serif;
+  fill: #118dee;
+}
+.agreementsLabel {
+  font-family: "giregular", "Futura", "Poppins", sans-serif;
+  fill: #39A0F1;
+  font-size: 16px;
+}
+.agreementsPath {
+  fill: none;
+  stroke: #b8d4f0;
 }

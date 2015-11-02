@@ -1,4 +1,4 @@
-.vis-wrapper {
+.vis-wrap {
 	position: absolute;
 	z-index: 10;
 	top: 0;
@@ -7,10 +7,47 @@
 	height: 100vh;
 	width:  ~"calc(100% - 300px)";
 	background-color: @iceblue;
+
+	.vis-wrap-inner {
+		height: 100%;
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		//overflow-y: scroll;
+
+		.offset {
+			height: 3000px;
+		}
+	}
 }
 
-.vis-container {
-	.clearfix();
+.timeline-container {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.timeline {
+	position: fixed;
+	z-index: 1000;
+	bottom: 0;
+	left: 0;
+	right: 300px;
+	height: 16px;
+	background-color: #B9D5F0;
+}
+
+.timeline-current {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 0%;
+	transition: 0.3s width;
+	background-color: @blue;
 }
 
 .sidebar {
