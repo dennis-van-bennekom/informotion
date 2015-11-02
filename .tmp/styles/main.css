@@ -464,7 +464,7 @@ sub {
   vertical-align: baseline;
 }
 legend {
-  color: #000;
+  color: #000000;
 }
 .clearfix {
   *zoom: 1;
@@ -1535,8 +1535,13 @@ p {
   transform: skew(10deg);
 }
 .btn.light {
+<<<<<<< HEAD
+  color: #ffffff;
+  border: 1px solid #acbed6;
+=======
   color: #FFFFFF;
   border: 1px solid #ACBED6;
+>>>>>>> 0df14e9b376fc4e2e3cd73335e54f0a890cc1408
 }
 .btn:after {
   content: "";
@@ -1548,6 +1553,16 @@ p {
   top: 115%;
   width: 150%;
   height: 300%;
+<<<<<<< HEAD
+  background-color: #7ed321;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+.btn:hover {
+  color: #ffffff;
+  background-color: #7ed321;
+  border: 1px solid #7ed321;
+=======
   background-color: #7ED321;
   transform: rotate(35deg);
 }
@@ -1555,6 +1570,7 @@ p {
   color: #FFFFFF;
   background-color: #7ED321;
   border: 1px solid #7ED321;
+>>>>>>> 0df14e9b376fc4e2e3cd73335e54f0a890cc1408
 }
 .btn:hover:after {
   top: -50%;
@@ -1562,27 +1578,46 @@ p {
   opacity: 1;
 }
 .m-scene .scene_element {
-  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   transition-timing-function: ease-in;
-  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
 }
 .m-scene .scene_element--fadein {
-  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
 .m-scene.is-exiting .scene_element {
-  animation-direction: alternate-reverse;
+  -webkit-animation-direction: alternate-reverse;
+          animation-direction: alternate-reverse;
 }
 /*
  * Keyframes
  */
-@keyframes fadeIn {
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-10%);
     transform: translate3d(0px, 0px, 0px) translateY(-10%);
   }
   100% {
     opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
+    transform: translate3d(0px, 0px, 0px) translateY(0%);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(-10%);
+    transform: translate3d(0px, 0px, 0px) translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px) translateY(0%);
     transform: translate3d(0px, 0px, 0px) translateY(0%);
   }
 }
@@ -1597,7 +1632,11 @@ p {
   }
 }
 .intro {
+<<<<<<< HEAD
+  color: #ffffff;
+=======
   color: #FFFFFF;
+>>>>>>> 0df14e9b376fc4e2e3cd73335e54f0a890cc1408
   position: relative;
   height: 100vh;
 }
