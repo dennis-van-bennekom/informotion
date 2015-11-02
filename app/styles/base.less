@@ -1,6 +1,6 @@
 html {
 	box-sizing: border-box;
-	background-color: #171d25;
+	.blue-bg();
 }
 
 *, *:before, *:after {
@@ -28,9 +28,7 @@ body {
 }
 
 p {
-	font-family: @altfont;
-	font-size: 1.1em;
-	line-height: 1.7em;
+	line-height: 1.6em;
 }
 
 .vertical-aligner {
@@ -55,21 +53,22 @@ p {
 
 .btn {
 	position: relative;
-	background-color: rgba(255,255,255,0.05);
+	background-color: transparent;
+	color: @blue;
 	overflow: hidden;
 	z-index: 1;
 	display: inline-block;
 	text-indent: 0.2em;
 	letter-spacing: 0.2em;
 	padding: 1.25rem 2rem;
-	border: 1px solid @fcolor;
 	text-transform: uppercase;
 	transition: 0.2s all ease-in-out;
-	border-radius: 3px;
+	border-radius: 50px;
 
-	&.light {
+	&.outlined {
 		color: @white;
-		border: 1px solid @accent;
+		background-color: transparent;
+		border: 2px solid @white;
 	}
 
 	&:after {
@@ -82,14 +81,17 @@ p {
 		top: 115%;
 		width: 150%;
 		height: 300%;
-		background-color: @accent;
+		background-color: @white;
 		.transform(rotate(35deg));
 	}
 
 	&:hover {
-		color: @white;
-		background-color: @accent;
-		border: 1px solid @accent;
+		background-color: transparent;
+
+		&.outlined {
+			background-color: @white;
+			color: @blue;
+		}
 
 		&:after {
 			top: -50%;

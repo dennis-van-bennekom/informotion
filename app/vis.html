@@ -13,12 +13,8 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-
   <!-- Google Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Rajdhani:400,300,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Rubik:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
@@ -28,42 +24,24 @@
 <body class="body">
 
   <div id="main-wrapper" class="m-scene">
-   <div class="scene_element scene_element--fadein">
+   <div class="scene_element scene_element--fadeinleft">
+    <div class="vis-wrapper">
+      <div class="visualization"></div>
+    </div>
+  </div>
 
-     <div class="vis-wrapper">
-       <div class="vis-meta">
-        <h1 class="vis-title">Clean Energy Race</h1>
-        <h2 class="vis-subtitle">For a better world</h2>
-      </div>
+  <div class="scene_element scene_element--fadeinright">
+    <div class="sidebar">
+      <div class="sidebar-inner">
 
-      <div class="vis-container">
+        <div class="sidebar-bottom">
 
-      </div>
-
-
-      <div class="vis-sidebar">
-        <div class="sidebar-inner">
-          <div class="country-stats">
-            <div class="country-name">Netherlands</div>
-            <div class="meta-holder">
-              <div class="meta-stat">
-                <div class="meta-title">Energy Use</div>
-                <div class="number">1239432</div><div class="unit">tj</div>
-              </div>
-              <div class="meta-stat">
-              <div class="meta-title">Population</div>
-              <div class="number">55666666</div><div class="unit">citizens</div>
-              </div>
-            </div>
-          </div>
         </div>
+
       </div>
     </div>
-
   </div>
 </div>
-
-
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
@@ -80,5 +58,23 @@
 <!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/velocity/velocity.js"></script>
+<script src="/bower_components/velocity/velocity.ui.js"></script>
+<script src="/bower_components/d3/d3.js"></script>
+<script src="/bower_components/smoothstate/src/jquery.smoothState.js"></script>
+<script src="/bower_components/hammerjs/hammer.js"></script>
+<script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="/bower_components/underscore/underscore.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+>>>>>>> b88dcac52c1262047b677e3dc2d422fb5b2ffb83
 </body>
 </html>
