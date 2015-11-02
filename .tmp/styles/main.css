@@ -1699,6 +1699,9 @@ p {
   transition: 0.3s left;
   color: #32A7F2;
 }
+.timeline-buttons {
+  text-align: center;
+}
 html,
 body {
   width: 100%;

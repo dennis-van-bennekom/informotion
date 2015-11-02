@@ -284,7 +284,7 @@ d3.csv('scripts/data.csv', function(d) {
 
   var timeline = $('.timeline');
 
-  timeline.on('mousedown', function(e) {
+  timeline.on('click', function(e) {
     var x = e.clientX;
     var width = window.innerWidth - window.innerWidth / 10;
     x -= window.innerWidth / 20;
@@ -292,6 +292,14 @@ d3.csv('scripts/data.csv', function(d) {
     var year = Math.round(x / width * 22);
 
     changeYear(year);
+  });
+
+  $('.button-prev').on('click', function() {
+    changeYear(currentYear - 1);
+  });
+
+  $('.button-next').on('click', function() {
+    changeYear(currentYear + 1);
   });
 });
 
