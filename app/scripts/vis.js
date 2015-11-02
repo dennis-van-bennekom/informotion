@@ -286,7 +286,7 @@ d3.csv('scripts/data.csv', function(d) {
 
   timeline.on('click', function(e) {
     var x = e.clientX;
-    var width = window.innerWidth - window.innerWidth / 10;
+    var width = window.innerWidth - window.innerWidth / 10 - 300;
     x -= window.innerWidth / 20;
 
     var year = Math.round(x / width * 22);

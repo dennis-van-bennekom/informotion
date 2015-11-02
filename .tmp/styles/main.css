@@ -1679,7 +1679,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 300px);
   height: 16px;
   background-color: #175074;
 }
