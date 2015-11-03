@@ -11,7 +11,8 @@
     "underscore": "~1.8.3",
     "typeahead.js": "~0.11.1",
     "bootstrap-combobox": "~1.1.6",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "jquery-simple-combobox": "~1.1.25"
   },
   "devDependencies": {
     "chai": "~3.3.0",

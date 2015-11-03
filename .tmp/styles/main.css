@@ -1596,6 +1596,12 @@ p {
 .country-dropdown {
   color: #000;
 }
+svg {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .m-scene .scene_element {
   animation-fill-mode: both;
 }
@@ -1887,4 +1893,8 @@ p {
 }
 .combobox-selected .caret {
   display: none;
+}
+.scombobox-display,
+.scombobox-list {
+  color: #000;
 }
