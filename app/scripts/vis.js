@@ -54,7 +54,7 @@ d3.csv('scripts/data.csv', function(d) {
   var agreements = [
     { name: '0%', value: '0' },
     { name: 'Europe Target by 2020 - 20%', value: '20' },
-    { name: '50%', 'value': '40' }
+    { name: '40%', 'value': '40' }
   ];
 
   var HEIGHT = 900,
@@ -267,23 +267,15 @@ d3.csv('scripts/data.csv', function(d) {
 
 
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
-    $('.timeline-year').css('left', yearScale(currentYear) - 1.5 + '%');
+    $('.timeline-year').css('left', yearScale(currentYear) - 2.5 + '%');
     $('.timeline-year').text(1990 + currentYear);
   };
 
-  var countryDropdown = $('.country-dropdown');
+  var countryDropdown1 = $('.country-dropdown-1');
+  var countryDropdown2 = $('.country-dropdown-2');
 
-  data.map(function(d, i) {
-    var country = d.land;
-
-    var newElement = document.createElement('option');
-    newElement.value = i;
-    newElement.innerHTML = country;
-
-    countryDropdown.append(newElement);
-  });
-
-  countryDropdown.combobox();
+  countryDropdown1.combobox();
+  countryDropdown2.combobox();
 
   var timeline = $('.timeline');
 

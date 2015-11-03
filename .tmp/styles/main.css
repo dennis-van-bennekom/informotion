@@ -1436,6 +1436,12 @@ Bootstrap Grid
     margin-left: 0;
   }
 }
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .blue-bg {
   background: #1da4f3;
   background: linear-gradient(45deg, #1da4f3 0%, #0d86ec 100%);
@@ -1548,11 +1554,19 @@ p {
   text-transform: uppercase;
   transition: 0.2s all ease-in-out;
   border-radius: 50px;
+  cursor: pointer;
 }
 .btn.outlined {
   color: #FFFFFF;
   background-color: transparent;
   border: 2px solid #FFFFFF;
+}
+.btn.outlined.blue {
+  color: #118DEE;
+  border: 2px solid #118DEE;
+}
+.btn.outlined.blue:after {
+  background-color: #118DEE;
 }
 .btn:after {
   content: "";
@@ -1605,7 +1619,7 @@ p {
   animation-duration: 500ms;
   animation-name: fadeInUp;
   transition-timing-function: ease-out;
-  animation-delay: 200ms;
+  animation-delay: 400ms;
 }
 .m-scene.is-exiting .scene_element {
   animation-direction: alternate-reverse;
@@ -1643,7 +1657,7 @@ p {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(80%);
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
@@ -1701,13 +1715,14 @@ p {
 .vis-wrap .vis-wrap-inner .offset {
   height: 3000px;
 }
+.center-text {
+  fill: #72C14E;
+}
 .timeline-container {
   position: absolute;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  height: 100%;
-  width: 100%;
 }
 .timeline {
   position: fixed;
@@ -1723,9 +1738,18 @@ p {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 0%;
+  width: 5%;
   transition: 0.3s width;
   background-color: #118DEE;
+}
+.timeline-year {
+  position: absolute;
+  left: 3%;
+  bottom: 20px;
+  font-family: "gibold", "Futura", "Poppins", sans-serif;
+  font-size: 32px;
+  color: #118DEE;
+  transition: 0.3s left;
 }
 .sidebar {
   position: absolute;
@@ -1747,6 +1771,95 @@ p {
   width: 100%;
   height: 300px;
   background-color: #FFFFFF;
+}
+.timeline-buttons {
+  position: absolute;
+  top: 42px;
+  right: 72px;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.timeline-buttons .timeline-small {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #118DEE;
+  margin-bottom: 10px;
+}
+.timeline-buttons .button-prev {
+  margin-right: 8px;
+}
+.timeline-buttons .button-prev,
+.timeline-buttons .button-next {
+  cursor: pointer;
+  border: 2px solid #118DEE;
+  padding: 0.9rem 1.7rem;
+  display: inline-block;
+  transition: 0.2s all ease-in-out;
+  background-color: transparent;
+  border-radius: 50px;
+}
+.timeline-buttons .button-prev:hover,
+.timeline-buttons .button-next:hover {
+  background-color: #FFFFFF;
+}
+.timeline-buttons .button-prev img,
+.timeline-buttons .button-next img {
+  display: block;
+}
+.numbers-container .number-container {
+  *zoom: 1;
+  padding-right: 30px;
+  border-bottom: 1px solid #5DB1ED;
+}
+.numbers-container .number-container:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.numbers-container .number-container .icon {
+  float: left;
+  padding-right: 23px;
+}
+.numbers-container .number-container .number {
+  font-size: 20px;
+  line-height: 1.2em;
+  font-family: "gibold", "Futura", "Poppins", sans-serif;
+  letter-spacing: 0.015em;
+  padding-top: 16px;
+}
+.numbers-container .number-container .unit {
+  position: relative;
+  top: -4px;
+  float: right;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #88D5FE;
+}
+.compare-button {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.75px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #D50046;
+  transition: all 0.15s ease-in-out;
+}
+.compare-button .arrow-right {
+  display: inline-block;
+  padding-left: 4px;
+  vertical-align: middle;
+  height: 9px;
+}
+.compare-button:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #FA1661;
 }
 .country {
   fill: #118DEE;

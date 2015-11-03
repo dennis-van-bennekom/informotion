@@ -67,11 +67,21 @@ p {
 	text-transform: uppercase;
 	transition: 0.2s all ease-in-out;
 	border-radius: 50px;
+	cursor: pointer;
 
 	&.outlined {
 		color: @white;
 		background-color: transparent;
 		border: 2px solid @white;
+
+		&.blue {
+			color: @blue;
+			border: 2px solid @blue;
+
+			&:after {
+				background-color: @blue;
+			}
+		}
 	}
 
 	&:after {
