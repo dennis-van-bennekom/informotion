@@ -311,16 +311,16 @@ d3.csv('scripts/data.csv', function(d) {
 
     countryDropdown1.scombobox('val', selected[0].toString());
     countryDropdown2.scombobox('val', selected[1].toString());
-    
+
     $('.js-wind-1').text(Math.round(data[index1].wind[currentYear]));
     $('.js-water-1').text(Math.round(data[index1].hydro[currentYear]));
     $('.js-solar-1').text(Math.round(data[index1].solar[currentYear]));
-    $('.js-green-1').text(Math.round(data[index1].total[currentYear]));
+    $('.js-green-1').text(Math.round(data[index1].percentage[currentYear]) + '%');
 
     $('.js-wind-2').text(Math.round(data[index2].wind[currentYear]));
     $('.js-water-2').text(Math.round(data[index2].hydro[currentYear]));
     $('.js-solar-2').text(Math.round(data[index2].solar[currentYear]));
-    $('.js-green-2').text(Math.round(data[index2].total[currentYear]));
+    $('.js-green-2').text(Math.round(data[index2].percentage[currentYear]) + '%');
   }
 
   updateData();

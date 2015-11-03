@@ -1874,8 +1874,8 @@ svg {
   background-color: #EA034F;
 }
 .highlights-box {
-  background-color: #ffffff;
-  color: #118dee;
+  background-color: #FFFFFF;
+  color: #118DEE;
 }
 .highlights-box .highlight-title {
   padding: 20px 28px;
@@ -1986,5 +1986,5 @@ svg {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  background-color: #2282d1;
+  background-color: #2282D1;
 }
