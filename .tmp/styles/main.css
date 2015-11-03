@@ -1951,3 +1951,9 @@ p {
   fill: none;
   stroke: #b8d4f0;
 }
+.combobox-container:not(.combobox-selected) .glyphicon-remove {
+  display: none;
+}
+.combobox-selected .caret {
+  display: none;
+}

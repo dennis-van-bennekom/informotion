@@ -265,7 +265,6 @@ d3.csv('scripts/data.csv', function(d) {
         return rd(d.percentage[currentYear]) * Math.cos(radians);
       });
 
-
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
     $('.timeline-year').css('left', yearScale(currentYear) - 2.5 + '%');
     $('.timeline-year').text(1990 + currentYear);
