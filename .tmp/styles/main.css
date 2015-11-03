@@ -1518,6 +1518,9 @@ body {
 #main-wrapper {
   height: 100%;
 }
+*:focus {
+  outline: 0;
+}
 p {
   line-height: 1.6em;
 }
@@ -1881,7 +1884,7 @@ svg {
 }
 .timeline-buttons .button-prev:hover,
 .timeline-buttons .button-next:hover {
-  background-color: #ffffff;
+  background-color: #d7efff;
 }
 .timeline-buttons .button-prev img,
 .timeline-buttons .button-next img {
@@ -1987,4 +1990,54 @@ svg {
 .agreementsPath {
   fill: none;
   stroke: #b8d4f0;
+}
+.scombobox {
+  margin: 0;
+}
+.scombobox-display {
+  font-family: "Rubik", sans-serif;
+  border-radius: 0;
+  border: 0;
+  color: #ffffff;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 28px;
+  background-color: #2282d1;
+  box-shadow: inset 0px 1px 10px 0px #1676C5;
+}
+.scombobox-display:focus {
+  box-shadow: inset 0px 1px 10px 0px #1676C5;
+  outline: 0;
+}
+.scombobox-dropdown-arrow {
+  background: url(../images/arrow-bottom-white.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  opacity: 1;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.15s ease-in-out;
+}
+.scombobox-dropdown-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.scombobox-dropdown-background {
+  width: 50px;
+  background-color: #2282d1;
+  border-radius: 0;
+  border: 0;
+}
+.scombobox-list {
+  border-radius: 0;
+  max-height: 220px;
+}
+.scombobox-list p {
+  color: #118dee;
+  padding-left: 28px;
+}
+.scombobox-list p:hover,
+.scombobox-list p.scombobox-hovered {
+  background-color: #118dee;
+  color: #ffffff;
 }
