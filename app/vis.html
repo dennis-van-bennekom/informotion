@@ -29,23 +29,12 @@
     <div class="vis-wrap">
 
       <div class="vis-wrap-inner">
-        <div class="vis">
-          <!-- <svg class="hidden">
-            <defs>
-              <filter id="filter" primitiveUnits="objectBoundingBox" x="-50%" y="-50%" width="200%" height="200%">
+        <div class="vis"></div>
 
-                <feGaussianBlur in="SourceAlpha" stdDeviation="0.0500"></feGaussianBlur>
-                <feOffset dx="0" dy="0" result="offsetblur"></feOffset>
-                <feFlood flood-color="rgba(184, 212, 240, 0.50)"></feFlood>
-                <feComposite in2="offsetblur" operator="in"></feComposite>
-                <feMerge>
-                 <feMergeNode></feMergeNode>
-                 <feMergeNode in="SourceGraphic"></feMergeNode>
-               </feMerge>      
-
-             </filter>
-           </defs>
-         </svg> -->
+       <div class="timeline-buttons">
+         <p class="timeline-small">Change year</p>
+         <div class="button-prev"><img src="images/arrow-left-blue.svg" alt="back"></div>
+         <div class="button-next"><img src="images/arrow-right-blue.svg" alt="forth"></div>
        </div>
      </div>
    </div>
@@ -54,18 +43,74 @@
  <div class="scene_element scene_element--fadeinup timeline-container">
    <div class="timeline">
     <div class="timeline-current"></div>
-    </div>
+    <div class="timeline-year">1990</div>
+  </div>
 </div>
 
 <div class="scene_element scene_element--fadeinright">
   <div class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="sidebar-bottom">
-
+      <div class="country-dropdown-container">
+        <select class="country-dropdown form-control js-country-1" />  
       </div>
+
+      <ul class="numbers-container">
+        <li class="number-container">
+          <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+          <div class="number js-wind-1">1923</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+        <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+          <div class="number js-water-1">4239</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+          <div class="number js-solar-1">2103</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
+          <div class="number js-green-1">6573</div>
+          <div class="unit">Green energy</div>
+        </li>
+      </ul>
+
+
+      <div class="country-dropdown-container">
+        <select class="country-dropdown form-control js-country-2" />
+      </div>
+      
+      <ul class="numbers-container">
+        <li class="number-container">
+          <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+          <div class="number js-wind-2">3291</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+          <div class="number js-water-2">7382</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+          <div class="number js-solar-2">2412</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/greenenergy.svg" alt="green energy"></div>
+          <div class="number js-green-2">3281</div>
+          <div class="unit">Green energy</div>
+        </li>
+      </ul>
+
+      <a href="#" class="compare-button">See further analysis <img class="arrow-right" src="images/small-arrow-right-white.svg"></a>
+      
     </div>
   </div>
+</div>
 </div>
 </div>
 
@@ -79,6 +124,7 @@
 <script src="/bower_components/hammerjs/hammer.js"></script>
 <script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
 <!-- endbower -->
+<script src="/bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/main.js -->
