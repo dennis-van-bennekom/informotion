@@ -274,6 +274,16 @@ d3.csv('scripts/data.csv', function(d) {
   var countryDropdown1 = $('.country-dropdown-1');
   var countryDropdown2 = $('.country-dropdown-2');
 
+  data.forEach(function(d, i) {
+    var country = d.land;
+    var newElement = $('<option></option>');
+    newElement.attr('value', i);
+    newElement.text(country);
+
+    countryDropdown1.append(newElement);
+    countryDropdown2.append(newElement.clone());
+  });
+
   countryDropdown1.combobox();
   countryDropdown2.combobox();
 
