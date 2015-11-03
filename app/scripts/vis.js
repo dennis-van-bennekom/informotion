@@ -60,6 +60,8 @@ d3.csv('scripts/data.csv', function(d) {
   var HEIGHT = 900,
       WIDTH = HEIGHT;
 
+  $('.js-tooltip').hide();
+
   var selected = [Math.round(Math.random() * data.length), Math.round(Math.random() * data.length)];
   var maxSelected = 2;
 
@@ -141,33 +143,26 @@ d3.csv('scripts/data.csv', function(d) {
 
         return rd(d.percentage[currentYear]) * Math.cos(radians);
       })
-      //.style('fill', '#fff')
-      //.style('stroke', '#fff')
-      //.style('opacity', 0.9)
       .on('mouseenter', function(d, i) {
-        var cx = $(this).attr('cx');
-        var cy = $(this).attr('cy');
-        var r = $(this).attr('r');
+        var cx = +$(this).attr('cx');
+        var cy = +$(this).attr('cy');
+        var r = +$(this).attr('r');
+        var newX = WIDTH / 2 + cx;
+        var newY = HEIGHT / 2 + cy;
 
-        var label = d3.select(this.parentNode)
-            .append('text')
-            .attr('class', 'label')
-            .style('text-anchor', 'middle')
-            .style('fill', '#fff')
-            .text(function() { return d.land })
-            .attr('dx', cx)
-            .attr('dy', cy - r - 10)
-            .style('opacity', 0)
-            .transition()
-            .duration(200)
-            .style('opacity', 1);
+        var tooltip = $('.js-tooltip');
+        tooltip.show();
+        tooltip.css('top', newY + r / 1.2);
+        tooltip.css('left', newX + r / 1.2);
+
+        $('.js-country').text(d.land);
+        $('.js-green-percentage').text(Math.round(d.percentage[currentYear]));
+        $('.js-green-total').text(Math.round(d.total[currentYear]));
+        var totalGrey = d.total[currentYear] / d.percentage[currentYear] * 100;
+        $('.js-grey-total').text(Math.round(totalGrey));
       })
       .on('mouseleave', function(d, i) {
-        d3.selectAll('.label')
-          .transition()
-          .duration(200)
-          .style('opacity', 0)
-          .remove();
+        $('.js-tooltip').hide();
       })
       .on('click', function(d, i) {
         select(i + 1);
