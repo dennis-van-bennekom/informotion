@@ -30,7 +30,16 @@
     <div class="vis-wrap">
 
       <div class="vis-wrap-inner">
-        <div class="vis"></div>
+        <div class="vis-container">
+          <div class="vis"></div>
+
+          <div class="tooltip js-tooltip">
+            <h1 class="js-country">Netherlands</h1>
+            <h2><span class="js-green-percentage">33</span>% Green</h2>
+            <h2><span class="js-green-total">666</span>TJ Green</h2>
+            <h2><span class="js-grey-total">999</span>TJ Grey</h2>
+          </div>
+        </div>
 
         <div class="timeline-buttons">
          <p class="timeline-small">Change year</p>
@@ -55,33 +64,6 @@
       <h3 class="compare-title">Compare Countries</h3>
 
       <div class="country-dropdown-container">
-        <div class="country-dropdown country-dropdown-1 form-control js-country-1"></div>
-      </div>
-
-      <ul class="numbers-container">
-        <li class="number-container">
-          <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
-          <div class="number js-wind-1">1923</div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
-          <div class="number js-water-1">4239</div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
-          <div class="number js-solar-1">2103</div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
-          <div class="number js-green-1">6573</div>
-          <div class="unit">Green energy</div>
-        </li>
-      </ul>
-
-      <div class="country-dropdown-container">
         <div class="country-dropdown country-dropdown-2 form-control js-country-2"></div>
       </div>
       
@@ -104,6 +86,33 @@
         <li class="number-container">
           <div class="icon"><img src="images/greenenergy.svg" alt="green energy"></div>
           <div class="number js-green-2">3281</div>
+          <div class="unit">Green energy</div>
+        </li>
+      </ul>
+
+      <div class="country-dropdown-container">
+        <div class="country-dropdown country-dropdown-1 form-control js-country-1"></div>
+      </div>
+
+      <ul class="numbers-container">
+        <li class="number-container">
+          <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+          <div class="number js-wind-1">1923</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+          <div class="number js-water-1">4239</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+          <div class="number js-solar-1">2103</div>
+          <div class="unit">Terajoule</div>
+        </li>
+        <li class="number-container">
+          <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
+          <div class="number js-green-1">6573</div>
           <div class="unit">Green energy</div>
         </li>
       </ul>

@@ -127,3 +127,29 @@ p {
 svg {
 	.no-select();
 }
+
+.vis-container {
+	width: 900px;
+	height: 900px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.vis-container svg {
+	position: absolute;
+}
+
+.vis-container .tooltip {
+	position: absolute;
+	left: 200px;
+	top: 100px;
+	padding: 15px 19px;
+
+	background-color: rgba(114, 193, 78, 0.7);
+
+	h1 {
+		text-transform: uppercase;
+		font-size: 16px;
+		white-space: nowrap;
+	}
+}
