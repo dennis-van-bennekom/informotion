@@ -1831,11 +1831,12 @@ svg {
   padding-right: 23px;
 }
 .numbers-container .number-container .number {
+  float: left;
   font-size: 20px;
   line-height: 1.2em;
   font-family: "gibold", "Futura", "Poppins", sans-serif;
   letter-spacing: 0.015em;
-  padding-top: 16px;
+  line-height: 54px;
 }
 .numbers-container .number-container .unit {
   position: relative;
@@ -1844,6 +1845,11 @@ svg {
   font-size: 12px;
   text-transform: uppercase;
   color: #88D5FE;
+  line-height: 54px;
+}
+.compare-title {
+  font-size: 18px;
+  padding: 20px 28px;
 }
 .compare-button {
   display: block;
@@ -1865,7 +1871,7 @@ svg {
 .compare-button:hover {
   text-decoration: none;
   color: #FFFFFF;
-  background-color: #FA1661;
+  background-color: #EA034F;
 }
 .country {
   fill: #118DEE;
@@ -1888,8 +1894,16 @@ svg {
   fill: none;
   stroke: #B8D4F0;
 }
-.combobox-container:not(.combobox-selected) .glyphicon-remove {
-  display: none;
+.input-group-addon.dropdown-toggle {
+  border-radius: 0;
+  background-color: transparent;
+  border: 0;
+  color: #FFFFFF;
+}
+.input-group-addon.dropdown-toggle:focus {
+  outline: 0;
+  border-color: none;
+  box-shadow: none;
 }
 .combobox-selected .caret {
   display: none;
@@ -1897,4 +1911,51 @@ svg {
 .scombobox-display,
 .scombobox-list {
   color: #000;
+}
+.combobox-container .glyphicon-remove {
+  display: none;
+}
+.combobox-container .input-group {
+  background: #2282D1;
+  box-shadow: inset 0px 1px 10px 0px #1676C5;
+}
+.combobox-container .input-group .form-control {
+  border-radius: 0;
+  background-color: transparent;
+  border: 0;
+  color: #FFFFFF;
+  padding: 30px;
+}
+.combobox-container .input-group .form-control:focus {
+  outline: 0;
+  border-color: none;
+  box-shadow: none;
+}
+.combobox-container .input-group .input-group-addon {
+  padding: 20px;
+}
+.combobox-container .input-group .country-dropdown {
+  font-size: 16px;
+  color: #DAEEFD;
+}
+.combobox-container .input-group .dropdown-menu {
+  border: 0;
+  height: 250px;
+  overflow-y: scroll;
+}
+.combobox-container .input-group .dropdown-toggle {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.combobox-container .input-group .dropdown-toggle .caret {
+  width: 16px;
+  height: 10px;
+  border-top: 0px;
+  background-image: url(../images/arrow-bottom-white.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.combobox-container .input-group .dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
