@@ -464,7 +464,7 @@ sub {
   vertical-align: baseline;
 }
 legend {
-  color: #000000;
+  color: #000;
 }
 .clearfix {
   *zoom: 1;
@@ -1502,7 +1502,7 @@ body {
 }
 body {
   font-family: "Rubik", sans-serif;
-  color: #ffffff;
+  color: #FFFFFF;
   position: relative;
   background: #1da4f3;
   background: linear-gradient(45deg, #1da4f3 0%, #0d86ec 100%);
@@ -1538,7 +1538,7 @@ p {
 .btn {
   position: relative;
   background-color: transparent;
-  color: #118dee;
+  color: #118DEE;
   overflow: hidden;
   z-index: 1;
   display: inline-block;
@@ -1550,9 +1550,9 @@ p {
   border-radius: 50px;
 }
 .btn.outlined {
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #FFFFFF;
 }
 .btn:after {
   content: "";
@@ -1564,16 +1564,15 @@ p {
   top: 115%;
   width: 150%;
   height: 300%;
-  background-color: #ffffff;
-  -webkit-transform: rotate(35deg);
+  background-color: #FFFFFF;
   transform: rotate(35deg);
 }
 .btn:hover {
   background-color: transparent;
 }
 .btn:hover.outlined {
-  background-color: #ffffff;
-  color: #118dee;
+  background-color: #FFFFFF;
+  color: #118DEE;
 }
 .btn:hover:after {
   top: -50%;
@@ -1584,143 +1583,75 @@ p {
   color: #000;
 }
 .m-scene .scene_element {
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 .m-scene .scene_element--fadein {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-name: fadeIn;
   transition-timing-function: ease-in;
 }
 .m-scene .scene_element--fadeinleft {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeInLeft;
-          animation-name: fadeInLeft;
+  animation-duration: 500ms;
+  animation-name: fadeInLeft;
   transition-timing-function: ease-out;
 }
 .m-scene .scene_element--fadeinright {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeInRight;
-          animation-name: fadeInRight;
+  animation-duration: 500ms;
+  animation-name: fadeInRight;
   transition-timing-function: ease-out;
-  -webkit-animation-delay: 200ms;
-          animation-delay: 200ms;
+  animation-delay: 200ms;
 }
 .m-scene .scene_element--fadeinup {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeInUp;
-          animation-name: fadeInUp;
+  animation-duration: 500ms;
+  animation-name: fadeInUp;
   transition-timing-function: ease-out;
-  -webkit-animation-delay: 200ms;
-          animation-delay: 200ms;
+  animation-delay: 200ms;
 }
 .m-scene.is-exiting .scene_element {
-  -webkit-animation-direction: alternate-reverse;
-          animation-direction: alternate-reverse;
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-5%);
-    transform: translateY(-5%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
+  animation-direction: alternate-reverse;
 }
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-5%);
     transform: translateY(-5%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0%);
     transform: translateY(0%);
-  }
-}
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
   }
 }
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-}
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(80%);
-    transform: translateX(80%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
 }
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(80%);
     transform: translateX(80%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0%);
     transform: translateX(0%);
-  }
-}
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(80%);
-    transform: translateY(80%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
   }
 }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(80%);
     transform: translateY(80%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0%);
     transform: translateY(0%);
   }
 }
 .intro {
-  color: #ffffff;
+  color: #FFFFFF;
   position: relative;
   height: 100vh;
   background-size: cover;
@@ -1759,7 +1690,7 @@ p {
   bottom: 0;
   height: 100vh;
   width: calc(100% - 300px);
-  background-color: #f0f9ff;
+  background-color: #F0F9FF;
 }
 .vis-wrap .vis-wrap-inner {
   height: 100%;
@@ -1779,16 +1710,11 @@ p {
   width: 100%;
 }
 .timeline {
-  overflow: visible;
   position: fixed;
   z-index: 1000;
   bottom: 0;
-<<<<<<< HEAD
   left: 0;
   right: 300px;
-=======
-  width: calc(100% - 300px);
->>>>>>> b783dde981e719b6a10363b181b09594d5531bc2
   height: 16px;
   background-color: #B9D5F0;
 }
@@ -1797,11 +1723,10 @@ p {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 5%;
+  width: 0%;
   transition: 0.3s width;
-  background-color: #118dee;
+  background-color: #118DEE;
 }
-<<<<<<< HEAD
 .sidebar {
   position: absolute;
   top: 0;
@@ -1812,20 +1737,6 @@ p {
 }
 .sidebar .sidebar-inner {
   position: relative;
-=======
-.timeline-year {
-  position: absolute;
-  left: 3.5%;
-  bottom: 20px;
-  transition: 0.3s left;
-  color: #32A7F2;
-}
-.timeline-buttons {
-  text-align: center;
-}
-html,
-body {
->>>>>>> b783dde981e719b6a10363b181b09594d5531bc2
   width: 100%;
   height: 100%;
 }
@@ -1835,10 +1746,10 @@ body {
   right: 0;
   width: 100%;
   height: 300px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .country {
-  fill: #118dee;
+  fill: #118DEE;
   opacity: 0.8;
 }
 .vis svg {
@@ -1847,7 +1758,7 @@ body {
 }
 .center-text {
   font-family: "gibold", "Futura", "Poppins", sans-serif;
-  fill: #118dee;
+  fill: #118DEE;
 }
 .agreementsLabel {
   font-family: "giregular", "Futura", "Poppins", sans-serif;
@@ -1856,5 +1767,5 @@ body {
 }
 .agreementsPath {
   fill: none;
-  stroke: #b8d4f0;
+  stroke: #B8D4F0;
 }
