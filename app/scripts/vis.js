@@ -270,19 +270,11 @@ d3.csv('scripts/data.csv', function(d) {
     $('.timeline-year').text(1990 + currentYear);
   };
 
-  var countryDropdown = $('.country-dropdown');
+  var countryDropdown1 = $('.country-dropdown-1');
+  var countryDropdown2 = $('.country-dropdown-2');
 
-  data.map(function(d, i) {
-    var country = d.land;
-
-    var newElement = document.createElement('option');
-    newElement.value = i;
-    newElement.innerHTML = country;
-
-    countryDropdown.append(newElement);
-  });
-
-  countryDropdown.combobox();
+  countryDropdown1.combobox();
+  countryDropdown2.combobox();
 
   var timeline = $('.timeline');
 

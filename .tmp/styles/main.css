@@ -464,7 +464,7 @@ sub {
   vertical-align: baseline;
 }
 legend {
-  color: #000000;
+  color: #000;
 }
 .clearfix {
   *zoom: 1;
@@ -1508,7 +1508,7 @@ body {
 }
 body {
   font-family: "Rubik", sans-serif;
-  color: #ffffff;
+  color: #FFFFFF;
   position: relative;
   background: #1da4f3;
   background: linear-gradient(45deg, #1da4f3 0%, #0d86ec 100%);
@@ -1544,7 +1544,7 @@ p {
 .btn {
   position: relative;
   background-color: transparent;
-  color: #118dee;
+  color: #118DEE;
   overflow: hidden;
   z-index: 1;
   display: inline-block;
@@ -1557,16 +1557,16 @@ p {
   cursor: pointer;
 }
 .btn.outlined {
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #FFFFFF;
 }
 .btn.outlined.blue {
-  color: #118dee;
-  border: 2px solid #118dee;
+  color: #118DEE;
+  border: 2px solid #118DEE;
 }
 .btn.outlined.blue:after {
-  background-color: #118dee;
+  background-color: #118DEE;
 }
 .btn:after {
   content: "";
@@ -1578,16 +1578,15 @@ p {
   top: 115%;
   width: 150%;
   height: 300%;
-  background-color: #ffffff;
-  -webkit-transform: rotate(35deg);
+  background-color: #FFFFFF;
   transform: rotate(35deg);
 }
 .btn:hover {
   background-color: transparent;
 }
 .btn:hover.outlined {
-  background-color: #ffffff;
-  color: #118dee;
+  background-color: #FFFFFF;
+  color: #118DEE;
 }
 .btn:hover:after {
   top: -50%;
@@ -1598,143 +1597,75 @@ p {
   color: #000;
 }
 .m-scene .scene_element {
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 .m-scene .scene_element--fadein {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-name: fadeIn;
   transition-timing-function: ease-in;
 }
 .m-scene .scene_element--fadeinleft {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeInLeft;
-          animation-name: fadeInLeft;
+  animation-duration: 500ms;
+  animation-name: fadeInLeft;
   transition-timing-function: ease-out;
 }
 .m-scene .scene_element--fadeinright {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeInRight;
-          animation-name: fadeInRight;
+  animation-duration: 500ms;
+  animation-name: fadeInRight;
   transition-timing-function: ease-out;
-  -webkit-animation-delay: 200ms;
-          animation-delay: 200ms;
+  animation-delay: 200ms;
 }
 .m-scene .scene_element--fadeinup {
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-  -webkit-animation-name: fadeInUp;
-          animation-name: fadeInUp;
+  animation-duration: 500ms;
+  animation-name: fadeInUp;
   transition-timing-function: ease-out;
-  -webkit-animation-delay: 400ms;
-          animation-delay: 400ms;
+  animation-delay: 400ms;
 }
 .m-scene.is-exiting .scene_element {
-  -webkit-animation-direction: alternate-reverse;
-          animation-direction: alternate-reverse;
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-5%);
-    transform: translateY(-5%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
+  animation-direction: alternate-reverse;
 }
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-5%);
     transform: translateY(-5%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0%);
     transform: translateY(0%);
-  }
-}
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
   }
 }
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-}
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(80%);
-    transform: translateX(80%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
 }
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(80%);
     transform: translateX(80%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0%);
     transform: translateX(0%);
-  }
-}
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
   }
 }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(100%);
     transform: translateY(100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0%);
     transform: translateY(0%);
   }
 }
 .intro {
-  color: #ffffff;
+  color: #FFFFFF;
   position: relative;
   height: 100vh;
   background-size: cover;
@@ -1773,7 +1704,7 @@ p {
   bottom: 0;
   height: 100vh;
   width: calc(100% - 300px);
-  background-color: #f0f9ff;
+  background-color: #F0F9FF;
 }
 .vis-wrap .vis-wrap-inner {
   height: 100%;
@@ -1785,7 +1716,7 @@ p {
   height: 3000px;
 }
 .center-text {
-  fill: #72c14e;
+  fill: #72C14E;
 }
 .timeline-container {
   position: absolute;
@@ -1809,7 +1740,7 @@ p {
   bottom: 0;
   width: 5%;
   transition: 0.3s width;
-  background-color: #118dee;
+  background-color: #118DEE;
 }
 .timeline-year {
   position: absolute;
@@ -1817,7 +1748,7 @@ p {
   bottom: 20px;
   font-family: "gibold", "Futura", "Poppins", sans-serif;
   font-size: 32px;
-  color: #118dee;
+  color: #118DEE;
   transition: 0.3s left;
 }
 .sidebar {
@@ -1839,7 +1770,7 @@ p {
   right: 0;
   width: 100%;
   height: 300px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .timeline-buttons {
   position: absolute;
@@ -1855,7 +1786,7 @@ p {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: #118dee;
+  color: #118DEE;
   margin-bottom: 10px;
 }
 .timeline-buttons .button-prev {
@@ -1864,7 +1795,7 @@ p {
 .timeline-buttons .button-prev,
 .timeline-buttons .button-next {
   cursor: pointer;
-  border: 2px solid #118dee;
+  border: 2px solid #118DEE;
   padding: 0.9rem 1.7rem;
   display: inline-block;
   transition: 0.2s all ease-in-out;
@@ -1873,7 +1804,7 @@ p {
 }
 .timeline-buttons .button-prev:hover,
 .timeline-buttons .button-next:hover {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .timeline-buttons .button-prev img,
 .timeline-buttons .button-next img {
@@ -1906,7 +1837,7 @@ p {
   float: right;
   font-size: 12px;
   text-transform: uppercase;
-  color: #88d5fe;
+  color: #88D5FE;
 }
 .compare-button {
   display: block;
@@ -1916,7 +1847,7 @@ p {
   letter-spacing: 1.75px;
   font-size: 12px;
   font-weight: 500;
-  background-color: #d50046;
+  background-color: #D50046;
   transition: all 0.15s ease-in-out;
 }
 .compare-button .arrow-right {
@@ -1927,11 +1858,11 @@ p {
 }
 .compare-button:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #FA1661;
 }
 .country {
-  fill: #118dee;
+  fill: #118DEE;
   opacity: 0.8;
 }
 .vis svg {
@@ -1940,7 +1871,7 @@ p {
 }
 .center-text {
   font-family: "gibold", "Futura", "Poppins", sans-serif;
-  fill: #118dee;
+  fill: #118DEE;
 }
 .agreementsLabel {
   font-family: "giregular", "Futura", "Poppins", sans-serif;
@@ -1949,7 +1880,7 @@ p {
 }
 .agreementsPath {
   fill: none;
-  stroke: #b8d4f0;
+  stroke: #B8D4F0;
 }
 .combobox-container:not(.combobox-selected) .glyphicon-remove {
   display: none;
