@@ -60,7 +60,7 @@ d3.csv('scripts/data.csv', function(d) {
   var HEIGHT = 900,
       WIDTH = HEIGHT;
 
-  var selected = [];
+  var selected = [Math.round(Math.random() * data.length), Math.round(Math.random() * data.length)];
   var maxSelected = 2;
 
   var currentYear = 0;
@@ -170,27 +170,22 @@ d3.csv('scripts/data.csv', function(d) {
           .remove();
       })
       .on('click', function(d, i) {
-        if (selected.indexOf(i) >= 0) {
-          deselect(this, i);
-        } else {
-          select(this, i);
-        }
+        select(i + 1);
       });
 
-  function deselect(element, index) {
-    selected.splice(selected.indexOf(index), 1);
-    
-    d3.select(element)
-        .style('fill', '#fff');
+  function select(index) {
+    if (selected.indexOf(index) < 0) {
+      if (selected.length > 1) selected.splice(0, 1);
+      
+      selected.push(index);
+
+      updateData();
+    }
   }
 
-  function select(element, index) {
-    if (selected.length < maxSelected) {
-      selected.push(index);
-      
-      d3.select(element)
-          .style('fill', 'red');
-    }
+  function selectFix(num, index) {
+    selected[num] = index;
+    updateData();
   }
 
   function getRaceData() {
@@ -206,26 +201,19 @@ d3.csv('scripts/data.csv', function(d) {
 
   var canScroll = true;
 
-  $(document).mousewheel(function(e) {
-
-    var direction = e.deltaY > 0 ? -1 : 1;
-
-    scroll(direction, 300);
-  });
-
   $(document).keydown(function(e) {
     switch(e.which) {
-      case 38:
+      case 37:
         scroll(-1, 150);
         break;
-      case 40:
+      case 39:
         scroll(1, 150);
         break;
     }
   });
 
   $(document).keyup(function(e) {
-    if (e.which === 38 || e.which === 40) {
+    if (e.which === 37 || e.which === 39) {
       canScroll = true;
     }
   });
@@ -242,6 +230,8 @@ d3.csv('scripts/data.csv', function(d) {
   }
 
   function changeYear(year) {
+    updateData();
+
     d3.selectAll('.label')
       .remove();
 
@@ -273,18 +263,27 @@ d3.csv('scripts/data.csv', function(d) {
   var countryDropdown1 = $('.country-dropdown-1');
   var countryDropdown2 = $('.country-dropdown-2');
 
-  data.forEach(function(d, i) {
-    var country = d.land;
-    var newElement = $('<option></option>');
-    newElement.attr('value', i);
-    newElement.text(country);
-
-    countryDropdown1.append(newElement);
-    countryDropdown2.append(newElement.clone());
+  $('.country-dropdown').scombobox({
+    fullMatch: true,
+    highlight: false
   });
 
-  countryDropdown1.combobox();
-  countryDropdown2.combobox();
+  var values = data.map(function(d, i) {
+    return { value: i + 1, text: d.land}
+  })
+
+  countryDropdown1.scombobox('fill', values);
+  countryDropdown2.scombobox('fill', values);
+
+  countryDropdown1.scombobox('change', function(e) {
+    var current = this.value;
+    selectFix(0, +current);
+  });
+
+  countryDropdown2.scombobox('change', function(e) {
+    var current = this.value;
+    selectFix(1, +current);
+  });
 
   var timeline = $('.timeline');
 
@@ -305,5 +304,25 @@ d3.csv('scripts/data.csv', function(d) {
   $('.button-next').on('click', function() {
     changeYear(currentYear + 1);
   });
+
+  function updateData() {
+    var index1 = selected[0] - 1;
+    var index2 = selected[1] - 1;
+
+    countryDropdown1.scombobox('val', selected[0].toString());
+    countryDropdown2.scombobox('val', selected[1].toString());
+    
+    $('.js-wind-1').text(Math.round(data[index1].wind[currentYear]));
+    $('.js-water-1').text(Math.round(data[index1].hydro[currentYear]));
+    $('.js-solar-1').text(Math.round(data[index1].solar[currentYear]));
+    $('.js-green-1').text(Math.round(data[index1].total[currentYear]));
+
+    $('.js-wind-2').text(Math.round(data[index2].wind[currentYear]));
+    $('.js-water-2').text(Math.round(data[index2].hydro[currentYear]));
+    $('.js-solar-2').text(Math.round(data[index2].solar[currentYear]));
+    $('.js-green-2').text(Math.round(data[index2].total[currentYear]));
+  }
+
+  updateData();
 });
 
