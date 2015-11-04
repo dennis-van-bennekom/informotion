@@ -241,22 +241,6 @@ d3.csv('scripts/data.csv', function(d) {
     if (currentYear < 0) { currentYear = 0; }
     if (currentYear > 22) {currentYear = 22; }
 
-    d3.selectAll('.country')
-      .transition()
-      .duration(250)
-      .attr('cy', function(d, i) {
-        var degrees = d.s / data.length * 360;
-        var radians = degrees * Math.PI / 180;
-
-        return rd(d.percentage[currentYear]) * Math.sin(radians);
-      })
-      .attr('cx', function(d, i) {
-        var degrees = d.s / data.length * 360;
-        var radians = degrees * Math.PI / 180;
-
-        return rd(d.percentage[currentYear]) * Math.cos(radians);
-      });
-
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
     $('.timeline-year').css('left', yearScale(currentYear) - 2.5 + '%');
     $('.timeline-year').text(1990 + currentYear);
@@ -347,7 +331,21 @@ d3.csv('scripts/data.csv', function(d) {
       d3.max(data, function(c) { return d3.max(c[filter], function(v) { return v; }); })
     ]).range([5, 60]);
 
-    country
+    d3.selectAll('.country')
+      .transition()
+      .duration(250)
+      .attr('cy', function(d, i) {
+        var degrees = d.s / data.length * 360;
+        var radians = degrees * Math.PI / 180;
+
+        return rd(d.percentage[currentYear]) * Math.sin(radians);
+      })
+      .attr('cx', function(d, i) {
+        var degrees = d.s / data.length * 360;
+        var radians = degrees * Math.PI / 180;
+
+        return rd(d.percentage[currentYear]) * Math.cos(radians);
+      })
       .attr('r', function(d, i) { return scale(d[filter][currentYear]); });
   }
 
@@ -416,7 +414,7 @@ d3.csv('scripts/data.csv', function(d) {
 
     overlay.show();
     
-    var margin = 40;
+    var margin = 60;
     var w = 900 - margin * 2,
         h = 600 - margin * 2;
 
@@ -484,4 +482,3 @@ d3.csv('scripts/data.csv', function(d) {
         .style('fill', 'none');  
   };
 });
-
