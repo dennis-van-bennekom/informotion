@@ -197,29 +197,26 @@
 	}
 }
 
-.highlights-box {
+.filter-box {
 	background-color: @white;
 	color: @blue;
 
-	.highlight-title {
+	.filter-title {
 		padding: 20px 28px;
 	}
 
-	.highlight-list {
+	.filter-list {
 		font-size: 14px;
 		list-style-type: none;
 		list-style-type: decimal;
-		margin-left: 42px;
 
-		li {
+		.filter {
 			padding: 12px 0;
 			border-bottom: 1px solid #EBEEF0;
 			counter-reset: listcounter;
+			padding-left: 22px;
 
-			&:before {
-				content: counter(listcounter);
-				counter-increment: listcounter;
-			}
+			input[type=radio] {}
 		}
 	}
 }
