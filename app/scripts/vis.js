@@ -64,6 +64,8 @@ function run() {
     var HEIGHT = window.innerHeight - window.innerHeight / 10;
         WIDTH = HEIGHT;
 
+    $('.vis').css('top', window.innerHeight / 2 - HEIGHT / 2);
+
     $('.js-tooltip').hide();
 
     var selected = [Math.round(Math.random() * data.length), Math.round(Math.random() * data.length)];
@@ -334,7 +336,7 @@ function run() {
 
       d3.selectAll('.country')
         .transition()
-        .duration(250)
+        .duration(400)
         .attr('cy', function(d, i) {
           var degrees = d.s / data.length * 360;
           var radians = degrees * Math.PI / 180;
