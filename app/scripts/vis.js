@@ -343,9 +343,44 @@ d3.csv('scripts/data.csv', function(d) {
       .attr('r', function(d, i) { return scale(d[filter][currentYear]); });
   }
 
+  $('.js-populatie-filter').on('click', function() {
+    currentFilter = 'populatie';
+    filter();
+  });
+
+  $('.js-oppervlakte-filter').on('click', function() {
+    currentFilter = 'oppervlakte';
+    filter();
+  });
+
+  $('.js-wind-filter').on('click', function() {
+    currentFilter = 'wind';
+    filter();
+  });
+
+  $('.js-hydro-filter').on('click', function() {
+    currentFilter = 'hydro';
+    filter();
+  });
+
+  $('.js-solar-filter').on('click', function() {
+    currentFilter = 'solar';
+    filter();
+  });
+
+  $('input[type="radio"]').keydown(function(e)
+  {
+      var arrowKeys = [37, 38, 39, 40];
+      if (arrowKeys.indexOf(e.which) !== -1)
+      {
+          $(this).blur();
+          return false;
+      }
+  });
+
   updateData();
 
-  currentFilter = 'hydro';
+  currentFilter = 'populatie';
   filter();
 });
 
