@@ -225,8 +225,6 @@ d3.csv('scripts/data.csv', function(d) {
   }
 
   function changeYear(year) {
-    updateData();
-
     d3.selectAll('.label')
       .remove();
 
@@ -234,6 +232,7 @@ d3.csv('scripts/data.csv', function(d) {
 
     if (currentYear < 0) { currentYear = 0; }
     if (currentYear > 22) {currentYear = 22; }
+
     d3.selectAll('.country')
       .transition()
       .duration(250)
@@ -253,6 +252,8 @@ d3.csv('scripts/data.csv', function(d) {
     $('.timeline-current').css('width', yearScale(currentYear) + '%');
     $('.timeline-year').css('left', yearScale(currentYear) - 2.5 + '%');
     $('.timeline-year').text(1990 + currentYear);
+
+    updateData();
   };
 
   var countryDropdown1 = $('.country-dropdown-1');
