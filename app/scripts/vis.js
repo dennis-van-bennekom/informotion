@@ -1,4 +1,13 @@
 function run() {
+  $('.info-open, .info-close, .overlay').click(function () {
+    if ($('body').hasClass('side-open')) {
+      $('body').removeClass('side-open');
+
+    } else {
+      $('body').addClass('side-open');
+    }
+  });
+
   d3.csv('scripts/data.csv', function(d) {
     return {
       bnppp:       +d.BNPpp,
@@ -53,16 +62,16 @@ function run() {
     }
     
     var agreements = [
-      { name: '0%', value: '0' },
-      { name: 'Europe Target by 2020 - 20%', value: '20' },
-      { name: '40%', 'value': '40' },
-      { name: '60%', 'value': '60' },
-      { name: '80%', 'value': '80' },
-      { name: '', 'value': '100'}
+    { name: '0%', value: '0' },
+    { name: 'Europe Target by 2020 - 20%', value: '20' },
+    { name: '40%', 'value': '40' },
+    { name: '60%', 'value': '60' },
+    { name: '80%', 'value': '80' },
+    { name: '', 'value': '100'}
     ];
 
     var HEIGHT = window.innerHeight - window.innerHeight / 10;
-        WIDTH = HEIGHT;
+    WIDTH = HEIGHT;
 
     $('.vis-container').css('height', HEIGHT);
     $('.vis-container').css('width', WIDTH);
@@ -86,83 +95,83 @@ function run() {
     });
 
     var svg = d3.select('.vis').append('svg')
-        .attr('width', WIDTH)
-        .attr('height', HEIGHT);
+    .attr('width', WIDTH)
+    .attr('height', HEIGHT);
 
     var g = svg.append('g')
-        .attr('transform', 'translate(' + WIDTH / 2 + ',' + HEIGHT / 2 + ')');
+    .attr('transform', 'translate(' + WIDTH / 2 + ',' + HEIGHT / 2 + ')');
 
     var arc = d3.svg.arc()
-        .outerRadius(function(d) { return rd(d.value); })
-        .startAngle(0)
-        .endAngle(2 * Math.PI);
+    .outerRadius(function(d) { return rd(d.value); })
+    .startAngle(0)
+    .endAngle(2 * Math.PI);
 
     var gAgreements = g.append('g')
-        .attr('class', 'agreements');
+    .attr('class', 'agreements');
 
     gAgreements.selectAll('.agreementsPaths')
-        .data(agreements)
-          .enter().append('path')
-        .attr('id', function(d, i) { return 'agreementsPath' + i })
-        .attr('class', 'agreementsPath')
-        .attr('d', arc);
+    .data(agreements)
+    .enter().append('path')
+    .attr('id', function(d, i) { return 'agreementsPath' + i })
+    .attr('class', 'agreementsPath')
+    .attr('d', arc);
 
     gAgreements.selectAll('.agreementsLabels')
-        .data(agreements)
-          .enter().append('text')
-        .attr('class', 'agreementsLabel')
-        .attr('dy', -5)
-        .attr('dx', 0)
-        .style('text-anchor', 'middle')
-      .append('textPath')
-        .attr('xlink:href', function(d, i) { return '#agreementsPath' + i; })
-        .attr('startOffset', '50%')
-        .text(function(d, i) { return d.name; });
+    .data(agreements)
+    .enter().append('text')
+    .attr('class', 'agreementsLabel')
+    .attr('dy', -5)
+    .attr('dx', 0)
+    .style('text-anchor', 'middle')
+    .append('textPath')
+    .attr('xlink:href', function(d, i) { return '#agreementsPath' + i; })
+    .attr('startOffset', '50%')
+    .text(function(d, i) { return d.name; });
 
     var gCountries = g.append('g')
-        .attr('class', 'countries');
+    .attr('class', 'countries');
 
     var country = gCountries.selectAll('.country')
-        .data(data)
-          .enter().append('circle')
-        .attr('class', 'country')
-        .attr('r', function(d, i) { return inwoners(d.populatie[currentYear]); })
-        .attr('cy', function(d, i) {
-          var degrees = d.s / data.length * 360;
-          var radians = degrees * Math.PI / 180;
+    .data(data)
+    .enter().append('circle')
+    .attr('class', 'country')
+    .attr('r', function(d, i) { return inwoners(d.populatie[currentYear]); })
+    .attr('cy', function(d, i) {
+      var degrees = d.s / data.length * 360;
+      var radians = degrees * Math.PI / 180;
 
-          return rd(d.percentage[currentYear]) * Math.sin(radians);
-        })
-        .attr('cx', function(d, i) {
-          var degrees = d.s / data.length * 360;
-          var radians = degrees * Math.PI / 180;
+      return rd(d.percentage[currentYear]) * Math.sin(radians);
+    })
+    .attr('cx', function(d, i) {
+      var degrees = d.s / data.length * 360;
+      var radians = degrees * Math.PI / 180;
 
-          return rd(d.percentage[currentYear]) * Math.cos(radians);
-        })
-        .on('mouseenter', function(d, i) {
-          var cx = +$(this).attr('cx');
-          var cy = +$(this).attr('cy');
-          var r = +$(this).attr('r');
-          var newX = WIDTH / 2 + cx;
-          var newY = HEIGHT / 2 + cy;
+      return rd(d.percentage[currentYear]) * Math.cos(radians);
+    })
+    .on('mouseenter', function(d, i) {
+      var cx = +$(this).attr('cx');
+      var cy = +$(this).attr('cy');
+      var r = +$(this).attr('r');
+      var newX = WIDTH / 2 + cx;
+      var newY = HEIGHT / 2 + cy;
 
-          var tooltip = $('.js-tooltip');
-          tooltip.show();
-          tooltip.css('top', newY + r / 1.2);
-          tooltip.css('left', newX + r / 1.2);
+      var tooltip = $('.js-tooltip');
+      tooltip.show();
+      tooltip.css('top', newY + r / 1.2);
+      tooltip.css('left', newX + r / 1.2);
 
-          $('.js-country').text(d.land);
-          $('.js-green-percentage').text(Math.round(d.percentage[currentYear]));
-          $('.js-green-total').text(Math.round(d.total[currentYear]));
-          var totalGrey = d.total[currentYear] / d.percentage[currentYear] * 100;
-          $('.js-grey-total').text(Math.round(totalGrey));
-        })
-        .on('mouseleave', function(d, i) {
-          $('.js-tooltip').hide();
-        })
-        .on('click', function(d, i) {
-          select(i + 1);
-        });
+      $('.js-country').text(d.land);
+      $('.js-green-percentage').text(Math.round(d.percentage[currentYear]));
+      $('.js-green-total').text(Math.round(d.total[currentYear]));
+      var totalGrey = d.total[currentYear] / d.percentage[currentYear] * 100;
+      $('.js-grey-total').text(Math.round(totalGrey));
+    })
+    .on('mouseleave', function(d, i) {
+      $('.js-tooltip').hide();
+    })
+    .on('click', function(d, i) {
+      select(i + 1);
+    });
 
     function select(index) {
       if (selected.indexOf(index) < 0) {
@@ -186,31 +195,31 @@ function run() {
     }
 
     var centerText = g.append('text')
-        .attr('text-anchor', 'middle')
-        .text('100%')
-        .attr('class', 'center-text');
+    .attr('text-anchor', 'middle')
+    .text('100%')
+    .attr('class', 'center-text');
 
     var centerText2 = g.append('text')
-        .attr('text-anchor', 'middle')
-        .text('Green')
-        .attr('class', 'center-text unit')
-        .attr('y', 13);
+    .attr('text-anchor', 'middle')
+    .text('Green')
+    .attr('class', 'center-text unit')
+    .attr('y', 13);
 
     d3.select('.timeline')
-        .on('input', function() {
-          changeYear(+this.value);
-        });
+    .on('input', function() {
+      changeYear(+this.value);
+    });
 
     var canScroll = true;
 
     $(document).keydown(function(e) {
       switch(e.which) {
         case 37:
-          scroll(-1, 150);
-          break;
+        scroll(-1, 150);
+        break;
         case 39:
-          scroll(1, 150);
-          break;
+        scroll(1, 150);
+        break;
       }
     });
 
@@ -235,7 +244,7 @@ function run() {
       $('.js-tooltip').hide();
 
       d3.selectAll('.label')
-        .remove();
+      .remove();
 
       currentYear = year;
 
@@ -330,24 +339,24 @@ function run() {
       var scale = d3.scale.linear().domain([
         d3.min(data, function(c) { return d3.min(c[filter], function(v) { return v; }); }),
         d3.max(data, function(c) { return d3.max(c[filter], function(v) { return v; }); })
-      ]).range([5, 60]);
+        ]).range([5, 60]);
 
       d3.selectAll('.country')
-        .transition()
-        .duration(400)
-        .attr('cy', function(d, i) {
-          var degrees = d.s / data.length * 360;
-          var radians = degrees * Math.PI / 180;
+      .transition()
+      .duration(400)
+      .attr('cy', function(d, i) {
+        var degrees = d.s / data.length * 360;
+        var radians = degrees * Math.PI / 180;
 
-          return rd(d.percentage[currentYear]) * Math.sin(radians);
-        })
-        .attr('cx', function(d, i) {
-          var degrees = d.s / data.length * 360;
-          var radians = degrees * Math.PI / 180;
+        return rd(d.percentage[currentYear]) * Math.sin(radians);
+      })
+      .attr('cx', function(d, i) {
+        var degrees = d.s / data.length * 360;
+        var radians = degrees * Math.PI / 180;
 
-          return rd(d.percentage[currentYear]) * Math.cos(radians);
-        })
-        .attr('r', function(d, i) { return scale(d[filter][currentYear]); });
+        return rd(d.percentage[currentYear]) * Math.cos(radians);
+      })
+      .attr('r', function(d, i) { return scale(d[filter][currentYear]); });
     }
 
     $('.js-populatie-filter').on('click', function() {
@@ -376,12 +385,12 @@ function run() {
     });
 
     $('input[type="radio"]').keydown(function(e) {
-        var arrowKeys = [37, 38, 39, 40];
-        if (arrowKeys.indexOf(e.which) !== -1)
-        {
-            $(this).blur();
-            return false;
-        }
+      var arrowKeys = [37, 38, 39, 40];
+      if (arrowKeys.indexOf(e.which) !== -1)
+      {
+        $(this).blur();
+        return false;
+      }
     });
 
     updateData();
