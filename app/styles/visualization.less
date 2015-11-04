@@ -20,16 +20,18 @@
 	}
 }
 
-.vis-title {
+.info-box {
 	position: absolute;
 	top: 25px;
 	left: 28px;
-	color: @blue;
-	font-size: 18px;
 }
 
-.center-text {
-	fill: @green;
+.vis-title {
+	color: @blue;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 4px;
 }
 
 .timeline-container {
@@ -82,6 +84,7 @@
 		width: 100%;
 		height: 100%;
 		overflow-y: scroll;
+		background-color: @white;
 
 		.sidebar-bottom {
 			position: absolute;
@@ -197,12 +200,16 @@
 	}
 }
 
+.compare-box {
+	.blue-bg();
+}
+
 .filter-box {
 	background-color: @white;
 	color: @blue;
 
 	.filter-title {
-		padding: 20px 28px;
+		padding: 20px 28px 14px;
 	}
 
 	.filter-list {
@@ -216,7 +223,38 @@
 			counter-reset: listcounter;
 			padding-left: 22px;
 
-			input[type=radio] {}
+			label {
+				position: relative;
+				padding-left: 30px;
+			}
+
+			label:before {
+				content: "";
+				cursor: pointer;
+				display: inline-block;
+				width: 16px;
+				height: 16px;		
+				margin-right: 18px;
+				position: absolute;
+				left: 0;
+				bottom: 1px;
+				border-radius: 8px;
+				background-color: @white;
+				box-shadow: 0;
+				border: 1px solid #CDD8E0;
+			}
+
+			input[type=radio] {
+				display: none;
+			}
+
+			input[type=radio]:checked + label:before {
+				content: "\2022";
+				color: @lightblue;
+				font-size: 34px;
+				text-align: center;
+				line-height: 12px;
+			}
 		}
 	}
 }

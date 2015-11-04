@@ -55,6 +55,8 @@ d3.csv('scripts/data.csv', function(d) {
     { name: '0%', value: '0' },
     { name: 'Europe Target by 2020 - 20%', value: '20' },
     { name: '40%', 'value': '40' },
+    { name: '60%', 'value': '60' },
+    { name: '80%', 'value': '80' },
     { name: '', 'value': '100'}
   ];
 
@@ -69,7 +71,7 @@ d3.csv('scripts/data.csv', function(d) {
   var currentYear = 0;
   var currentFilter = 'hydro';
 
-  var rd = d3.scale.linear().domain([100, 0]).range([30, WIDTH / 2 - 60]);
+  var rd = d3.scale.linear().domain([100, 0]).range([50, WIDTH / 2 - 60]);
   var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 60]);
   var yearScale = d3.scale.linear().domain([0, 22]).range([5, 95]);
 
@@ -88,11 +90,6 @@ d3.csv('scripts/data.csv', function(d) {
       .outerRadius(function(d) { return rd(d.value); })
       .startAngle(0)
       .endAngle(2 * Math.PI);
-
-  var centerText = g.append('text')
-      .attr('text-anchor', 'middle')
-      .text('100%')
-      .attr('class', 'center-text')
 
   var gAgreements = g.append('g')
       .attr('class', 'agreements');
@@ -186,6 +183,17 @@ d3.csv('scripts/data.csv', function(d) {
       return data[i];
     });
   }
+
+  var centerText = g.append('text')
+      .attr('text-anchor', 'middle')
+      .text('100%')
+      .attr('class', 'center-text');
+
+  var centerText2 = g.append('text')
+      .attr('text-anchor', 'middle')
+      .text('Green')
+      .attr('class', 'center-text unit')
+      .attr('y', 13);
 
   d3.select('.timeline')
       .on('input', function() {
