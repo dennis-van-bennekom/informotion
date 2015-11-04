@@ -21,6 +21,7 @@ $('document').ready(function () {
         // Inject the new content
         $container.html($newContent);
 
+        run();
       }
     }
   },
