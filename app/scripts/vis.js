@@ -317,6 +317,16 @@ d3.csv('scripts/data.csv', function(d) {
     $('.js-water-2').text(Math.round(data[index2].hydro[currentYear]));
     $('.js-solar-2').text(Math.round(data[index2].solar[currentYear]));
     $('.js-green-2').text(Math.round(data[index2].percentage[currentYear]) + '%');
+
+    var countries = $('.countries');
+
+    var country1 = countries.children()[index1];
+    var country2 = countries.children()[index2];
+    
+    countries.children().css('fill', '#118DEE');
+    
+    $(country1).css('fill', '#D50046');
+    $(country2).css('fill', '#D50046');
   }
 
   updateData();
