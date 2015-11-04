@@ -61,7 +61,7 @@ function run() {
       { name: '', 'value': '100'}
     ];
 
-    var HEIGHT = 900,
+    var HEIGHT = window.innerHeight - window.innerHeight / 10;
         WIDTH = HEIGHT;
 
     $('.js-tooltip').hide();
