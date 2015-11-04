@@ -23,9 +23,8 @@
 
 .m-scene .scene_element--fadeinup {
 	animation-duration: 500ms;
-	animation-name: fadeInUp;
+	animation-name: fadeInLeft;
 	transition-timing-function: ease-out;
-	animation-delay: 400ms;
 }
 
 .m-scene.is-exiting .scene_element {
@@ -68,7 +67,7 @@
 @keyframes fadeInUp {
 	0% { 
 		opacity: 0;
-		.transform(translateY(100%));
+		.transform(translateY(-100%));
 	}
 	100% { 
 		opacity: 1;

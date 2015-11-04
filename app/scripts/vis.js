@@ -68,7 +68,7 @@ d3.csv('scripts/data.csv', function(d) {
   var currentYear = 0;
 
   var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
-  var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 50]);
+  var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 60]);
   var yearScale = d3.scale.linear().domain([0, 22]).range([5, 95]);
 
   data.forEach(function(d, i) {
@@ -225,6 +225,8 @@ d3.csv('scripts/data.csv', function(d) {
   }
 
   function changeYear(year) {
+    $('.js-tooltip').hide();
+
     d3.selectAll('.label')
       .remove();
 
