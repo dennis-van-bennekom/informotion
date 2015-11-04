@@ -66,6 +66,7 @@ d3.csv('scripts/data.csv', function(d) {
   var maxSelected = 2;
 
   var currentYear = 0;
+  var currentFilter = 'hydro';
 
   var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
   var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 60]);
@@ -304,6 +305,8 @@ d3.csv('scripts/data.csv', function(d) {
   });
 
   function updateData() {
+    filter();
+
     var index1 = selected[0] - 1;
     var index2 = selected[1] - 1;
 
@@ -331,6 +334,21 @@ d3.csv('scripts/data.csv', function(d) {
     $(country2).css('fill', '#D50046');
   }
 
+  function filter() {
+    var filter = currentFilter;
+    
+    var scale = d3.scale.linear().domain([
+      d3.min(data, function(c) { return d3.min(c[filter], function(v) { return v; }); }),
+      d3.max(data, function(c) { return d3.max(c[filter], function(v) { return v; }); })
+    ]).range([5, 60]);
+
+    country
+      .attr('r', function(d, i) { return scale(d[filter][currentYear]); });
+  }
+
   updateData();
+
+  currentFilter = 'hydro';
+  filter();
 });
 
