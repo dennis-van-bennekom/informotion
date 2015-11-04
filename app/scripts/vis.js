@@ -433,7 +433,7 @@ d3.csv('scripts/data.csv', function(d) {
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient('left');
-
+//
     var line = d3.svg.line()
         .interpolate('basis')
         .x(function(d) { return x(d.year); })
