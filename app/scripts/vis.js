@@ -64,7 +64,10 @@ function run() {
     var HEIGHT = window.innerHeight - window.innerHeight / 10;
         WIDTH = HEIGHT;
 
-    $('.vis').css('top', window.innerHeight / 2 - HEIGHT / 2);
+    $('.vis-container').css('height', HEIGHT);
+    $('.vis-container').css('width', WIDTH);
+    $('.vis-container').css('top', window.innerHeight / 2 - HEIGHT / 2);
+    $('.vis-container').css('left', (window.innerWidth / 2 - 150) - WIDTH / 2);
 
     $('.js-tooltip').hide();
 
@@ -102,10 +105,7 @@ function run() {
           .enter().append('path')
         .attr('id', function(d, i) { return 'agreementsPath' + i })
         .attr('class', 'agreementsPath')
-        .attr('d', arc)
-        //.style('stroke', '#fff')
-        //.style('fill', 'none')
-        //.style('opacity', '0.6');
+        .attr('d', arc);
 
     gAgreements.selectAll('.agreementsLabels')
         .data(agreements)
@@ -113,8 +113,6 @@ function run() {
         .attr('class', 'agreementsLabel')
         .attr('dy', -5)
         .attr('dx', 0)
-        //.style('fill', '#fff')
-        //.style('font-size', '11px')
         .style('text-anchor', 'middle')
       .append('textPath')
         .attr('xlink:href', function(d, i) { return '#agreementsPath' + i; })
@@ -390,103 +388,5 @@ function run() {
 
     currentFilter = 'populatie';
     filter();
-
-    var overlay = $('.overlay');
-    overlay.hide();
-
-    $('.compare-button').on('click', function() {
-      renderOverlay();
-    });
-
-    function renderOverlay() {
-      var parseDate = d3.time.format("%Y").parse;
-
-      var graphData = [];
-
-      for (var i = 0; i < 23; i++) {
-        graphData.push({
-          year: i + 1990,
-          country1: data[selected[0] - 1].percentage[i],
-          country2: data[selected[1] - 1].percentage[i]
-        });
-      }
-
-      graphData.forEach(function(d) {
-        d.year = parseDate(d.year.toString());
-      });
-
-      overlay.show();
-      
-      var margin = 60;
-      var w = 900 - margin * 2,
-          h = 600 - margin * 2;
-
-      var x = d3.time.scale()
-          .range([0, w]);
-
-      var y = d3.time.scale()
-          .range([h, 0]);
-
-      var color = d3.scale.category20c();
-
-      var xAxis = d3.svg.axis()
-          .scale(x)
-          .orient('bottom');
-
-      var yAxis = d3.svg.axis()
-          .scale(y)
-          .orient('left');
-
-      var line = d3.svg.line()
-          .interpolate('basis')
-          .x(function(d) { return x(d.year); })
-          .y(function(d) { return y(d.percentage); });
-
-      var graph = d3.select('.grafiek').append('svg')
-          .attr('width', w + margin * 2)
-          .attr('height', h + margin * 2)
-        .append('g')
-          .attr('transform', 'translate(' + margin + ',' + margin + ')');
-
-      color.domain(d3.keys(graphData[0]).filter(function(key) {
-        return key !== 'year'; 
-      }));
-
-      var categories = color.domain().map(function(name) {
-        return {
-          name: name,
-          values: graphData.map(function(d) {
-            return { year: d.year, percentage: +d[name] };
-          })
-        };
-      });
-
-      x.domain(d3.extent(graphData, function(d) { return d.year }));
-      y.domain([0, 100]);
-
-      graph.append('g')
-          .attr('class', 'x axis')
-          .attr('transform', 'translate(0,' + h + ')')
-          .call(xAxis);
-
-      graph.append('g')
-          .attr('class', 'y axis')
-          .call(yAxis);
-
-      var category = graph.selectAll('.category')
-          .data(categories)
-        .enter().append('g')
-          .attr('class', 'category');
-
-      category.append('path')
-          .attr('class', 'line')
-          .attr('d', function(d) { return line(d.values) })
-          .style('stroke', '#000')
-          .style('fill', 'none');  
-    };
-
-    function deleteOverlay() {
-      $('.overlay svg').remove();
-    }
   });
 }
