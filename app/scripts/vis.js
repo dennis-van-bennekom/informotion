@@ -91,7 +91,7 @@ d3.csv('scripts/data.csv', function(d) {
 
   var centerText = g.append('text')
       .attr('text-anchor', 'middle')
-      .text('100%')
+      .text('100% Groen')
       .attr('class', 'center-text')
 
   var gAgreements = g.append('g')
