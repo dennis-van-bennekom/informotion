@@ -54,7 +54,8 @@ d3.csv('scripts/data.csv', function(d) {
   var agreements = [
     { name: '0%', value: '0' },
     { name: 'Europe Target by 2020 - 20%', value: '20' },
-    { name: '40%', 'value': '40' }
+    { name: '40%', 'value': '40' },
+    { name: '', 'value': '100'}
   ];
 
   var HEIGHT = 900,
@@ -68,7 +69,7 @@ d3.csv('scripts/data.csv', function(d) {
   var currentYear = 0;
   var currentFilter = 'hydro';
 
-  var rd = d3.scale.linear().domain([100, 0]).range([0, WIDTH / 2 - 60]);
+  var rd = d3.scale.linear().domain([100, 0]).range([30, WIDTH / 2 - 60]);
   var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 60]);
   var yearScale = d3.scale.linear().domain([0, 22]).range([5, 95]);
 
@@ -87,10 +88,6 @@ d3.csv('scripts/data.csv', function(d) {
       .outerRadius(function(d) { return rd(d.value); })
       .startAngle(0)
       .endAngle(2 * Math.PI);
-
-  var dot = g.append('circle')
-      .attr('r', '1px')
-      //.style('fill', "#fff");
 
   var centerText = g.append('text')
       .attr('text-anchor', 'middle')
