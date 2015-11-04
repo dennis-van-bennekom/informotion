@@ -16,10 +16,10 @@
 
   <!-- Google Fonts -->
   <!-- <link href='https://fonts.googleapis.com/css?family=Rubik:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
- -->
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild -->
+-->
+<!-- build:css styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
 
 </head>
 <body class="body">
@@ -30,7 +30,10 @@
     <div class="vis-wrap">
 
       <div class="vis-wrap-inner">
-        <h1 class="vis-title">Clean Energy Race</h1>
+        <div class="info-box">
+          <h1 class="vis-title">Clean Energy Race</h1>
+          <a class="link" href="javascript:void(0)">About this project</a>
+        </div>
         <div class="vis-container">
           <div class="vis"></div>
 
@@ -62,104 +65,108 @@
   <div class="sidebar">
     <div class="sidebar-inner">
 
-      <h3 class="compare-title">Compare Countries</h3>
+      <div class="compare-box">
+        <h3 class="compare-title">Compare Countries</h3>
 
-      <div class="country-dropdown-container">
-        <div class="country-dropdown country-dropdown-2 form-control js-country-2"></div>
+        <div class="country-dropdown-container">
+          <div class="country-dropdown country-dropdown-2 form-control js-country-2"></div>
+        </div>
+
+        <ul class="numbers-container">
+          <li class="number-container">
+            <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+            <div class="number js-wind-2"></div>
+            <div class="unit">Terajoule</div>
+          </li>
+          <li class="number-container">
+            <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+            <div class="number js-water-2"></div>
+            <div class="unit">Terajoule</div>
+          </li>
+          <li class="number-container">
+            <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+            <div class="number js-solar-2"></div>
+            <div class="unit">Terajoule</div>
+          </li>
+          <li class="number-container">
+            <div class="icon"><img src="images/greenenergy.svg" alt="green energy"></div>
+            <div class="number js-green-2"></div>
+            <div class="unit">Green energy</div>
+          </li>
+        </ul>
+
+        <div class="country-dropdown-container">
+          <div class="country-dropdown country-dropdown-1 form-control js-country-1"></div>
+        </div>
+
+        <ul class="numbers-container">
+          <li class="number-container">
+            <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+            <div class="number js-wind-1"></div>
+            <div class="unit">Terajoule</div>
+          </li>
+          <li class="number-container">
+            <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+            <div class="number js-water-1"></div>
+            <div class="unit">Terajoule</div>
+          </li>
+          <li class="number-container">
+            <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+            <div class="number js-solar-1"></div>
+            <div class="unit">Terajoule</div>
+          </li>
+          <li class="number-container">
+            <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
+            <div class="number js-green-1"></div>
+            <div class="unit">Green energy</div>
+          </li>
+        </ul>
+
+        <a href="#" class="compare-button">Compare Selection <img class="arrow-right" src="images/small-arrow-right-white.svg"></a>
       </div>
-      
-      <ul class="numbers-container">
-        <li class="number-container">
-          <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
-          <div class="number js-wind-2"></div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
-          <div class="number js-water-2"></div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
-          <div class="number js-solar-2"></div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/greenenergy.svg" alt="green energy"></div>
-          <div class="number js-green-2"></div>
-          <div class="unit">Green energy</div>
-        </li>
-      </ul>
-
-      <div class="country-dropdown-container">
-        <div class="country-dropdown country-dropdown-1 form-control js-country-1"></div>
-      </div>
-
-      <ul class="numbers-container">
-        <li class="number-container">
-          <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
-          <div class="number js-wind-1"></div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
-          <div class="number js-water-1"></div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
-          <div class="number js-solar-1"></div>
-          <div class="unit">Terajoule</div>
-        </li>
-        <li class="number-container">
-          <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
-          <div class="number js-green-1"></div>
-          <div class="unit">Green energy</div>
-        </li>
-      </ul>
-
-      <a href="#" class="compare-button">Compare Countries <img class="arrow-right" src="images/small-arrow-right-white.svg"></a>
       
       <div class="filter-box">
-          <ul class="filter-list">
-            <li class="filter"> <input id="population" class="js-populatie-filter" checked type="radio" name="filter" value="population">
-    <label for="population">Population</label></li>
+        <h4 class="filter-title">Determine circle size by:</h4>
+
+        <ul class="filter-list">
+          <li class="filter"> <input id="population" class="js-populatie-filter" checked type="radio" name="filter" value="population">
+            <label for="population">Population</label></li>
             <li class="filter"> <input id="surface-area" class="js-oppervlakte-filter" type="radio" name="filter" value="surface area">
-    <label for="surface-area">Surface Area</label></li>
-            <li class="filter"> <input id="wind-energy" class="js-wind-filter" type="radio" name="filter" value="wind energy">
-    <label for="wind-energy">Wind Energy</label></li>
-            <li class="filter"> <input id="hydro-energy" class="js-hydro-filter" type="radio" name="filter" value="hydro energy">
-    <label for="hydro-energy">Hydro Energy</label></li>
-            <li class="filter"> <input id="solar-energy" type="radio"  class="js-solar-filter" name="filter" value="solar energy">
-    <label for="solar-energy">Solar Energy</label></li>
-          </ul>
+              <label for="surface-area">Surface Area</label></li>
+              <li class="filter"> <input id="wind-energy" class="js-wind-filter" type="radio" name="filter" value="wind energy">
+                <label for="wind-energy">Wind Energy</label></li>
+                <li class="filter"> <input id="hydro-energy" class="js-hydro-filter" type="radio" name="filter" value="hydro energy">
+                  <label for="hydro-energy">Hydro Energy</label></li>
+                  <li class="filter"> <input id="solar-energy" type="radio"  class="js-solar-filter" name="filter" value="solar energy">
+                    <label for="solar-energy">Solar Energy</label></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
 
-<!-- build:js scripts/vendor.js -->
-<!-- bower:js -->
-<script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/velocity/velocity.js"></script>
-<script src="/bower_components/velocity/velocity.ui.js"></script>
-<script src="/bower_components/d3/d3.js"></script>
-<script src="/bower_components/smoothstate/src/jquery.smoothState.js"></script>
-<script src="/bower_components/hammerjs/hammer.js"></script>
-<script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="/bower_components/underscore/underscore.js"></script>
-<script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="/bower_components/jquery-simple-combobox/js/jquery.scombobox.min.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
+      <!-- build:js scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <script src="/bower_components/velocity/velocity.js"></script>
+      <script src="/bower_components/velocity/velocity.ui.js"></script>
+      <script src="/bower_components/d3/d3.js"></script>
+      <script src="/bower_components/smoothstate/src/jquery.smoothState.js"></script>
+      <script src="/bower_components/hammerjs/hammer.js"></script>
+      <script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+      <script src="/bower_components/underscore/underscore.js"></script>
+      <script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
+      <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="/bower_components/jquery-simple-combobox/js/jquery.scombobox.min.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
 
-<!-- build:js scripts/main.js -->
-<script src="scripts/main.js"></script>
-<script src="scripts/vis.js"></script>
-<!-- endbuild -->
+      <!-- build:js scripts/main.js -->
+      <script src="scripts/main.js"></script>
+      <script src="scripts/vis.js"></script>
+      <!-- endbuild -->
 
-</body>
-</html>
+    </body>
+    </html>
