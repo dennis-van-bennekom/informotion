@@ -1,4 +1,13 @@
 function run() {
+  $('.info-open, .info-close, .overlay').click(function () {
+    if ($('body').hasClass('side-open')) {
+      $('body').removeClass('side-open');
+
+    } else {
+      $('body').addClass('side-open');
+    }
+  });
+
   /*
    * Load data
    */
