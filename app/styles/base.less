@@ -63,7 +63,6 @@ p {
 .link {
 	font-size: 13px;
 	color: @lightblue;
-	text-transform: uppercase;
 	position: relative;
 	letter-spacing: 0.05em;
 
@@ -79,9 +78,9 @@ p {
 		margin: 0 auto;
 		bottom: -3px;
 		background-color: @lightblue;
-		transform: translateY(3px);
+		transform: translateY(2px);
 		.transition();
-		opacity: 0;
+
 	}
 
 	&:hover {
@@ -116,25 +115,25 @@ p {
 			color: @blue;
 			border: 2px solid @blue;
 
-			&:after {
-				background-color: @blue;
-			}
+			// &:after {
+			// 	background-color: @blue;
+			// }
 		}
 	}
 
-	&:after {
-		content: "";
-		position: absolute;
-		z-index: -1;
-		opacity: 0;
-		transition: 0.2s all ease-out;
-		left: -100%;
-		top: 115%;
-		width: 150%;
-		height: 300%;
-		background-color: @white;
-		.transform(rotate(35deg));
-	}
+	// &:after {
+	// 	content: "";
+	// 	position: absolute;
+	// 	z-index: -1;
+	// 	opacity: 0;
+	// 	transition: 0.2s all ease-out;
+	// 	left: -100%;
+	// 	top: 115%;
+	// 	width: 150%;
+	// 	height: 300%;
+	// 	background-color: @white;
+	// 	.transform(rotate(35deg));
+	// }
 
 	&:hover {
 		background-color: transparent;
@@ -144,11 +143,11 @@ p {
 			color: @blue;
 		}
 
-		&:after {
-			top: -50%;
-			left: -25%;
-			opacity: 1;
-		}
+		// &:after {
+		// 	top: -50%;
+		// 	left: -25%;
+		// 	opacity: 1;
+		// }
 	}
 }
 

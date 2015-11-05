@@ -1,5 +1,5 @@
 $('document').ready(function () {
-	var options = {
+  var options = {
     prefetch: true,
     cacheLength: 2,
     onStart: {
