@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="The Clean Energy Race">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EnergyRace</title>
+  <title>The Green Energy Race</title>
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico" />
 
@@ -15,164 +15,179 @@
   <!-- endbuild -->
 
   <!-- Google Fonts -->
-  <!-- <link href='https://fonts.googleapis.com/css?family=Rubik:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
--->
-<!-- build:css styles/main.css -->
-<link rel="stylesheet" href="styles/main.css">
-<!-- endbuild -->
+  <link href='https://fonts.googleapis.com/css?family=Rubik:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
 
 </head>
 <body class="body">
 
   <div id="main-wrapper" class="m-scene">
 
-   <div class="scene_element scene_element--fadeinleft">
-    <div class="vis-wrap">
+    <div class="info-text-box">
+      <div class="info-text-box-inner">
+        <div class="close-icon info-close"><img src="images/close-icon.svg"></div>
+        <p>Find the amount of renewable energy of every country in The Green Energy Race. See if your own country is going to succeed in the objectives of the European Union, where every European country has to have a share of at least 20% renewable energy by 2020.</p>
 
-      <div class="vis-wrap-inner">
-        <div class="info-box">
-          <h1 class="vis-title">Clean Energy Race</h1>
-          <a class="link" href="javascript:void(0)">About this project</a>
-        </div>
-        <div class="vis-container">
-          <div class="vis"></div>
+        <p>All forms of energy in this visualization are defined in Terajoule, which corresponds to 10<sup>12</sup> Joule.</p>
+        <p>All data shown in this visualization is collected from <a href="http://data.worldbank.org/" target="_blank">World Bank Open Data</a>, which provides free and open access to data about development in countries around the globe.</p>
 
-          <div class="tooltip js-tooltip">
-            <h1 class="js-country">Netherlands</h1>
-            <h2><span class="number js-green-percentage">33</span><span class="number">%</span><span><span class="unit">Green Energy</span></h2>
-            <h2><span class="number js-green-total">666</span><span class="unit">Total Green (in tj)</span></h2>
-            <h2><span class="number js-grey-total">999</span><span class="unit">Total Grey (in tj)</span></h2>
-          </div>
-        </div>
-
-        <div class="timeline-buttons">
-         <p class="timeline-small">Change year</p>
-         <div class="button-prev"><img src="images/arrow-left-blue.svg" alt="back"></div>
-         <div class="button-next"><img src="images/arrow-right-blue.svg" alt="forth"></div>
-       </div>
-     </div>
-   </div>
- </div>
-
- <div class="scene_element scene_element--fadeinup timeline-container">
-   <div class="timeline">
-    <div class="timeline-current"></div>
-    <div class="timeline-year">1990</div>
-  </div>
-</div>
-
-<div class="scene_element scene_element--fadeinright">
-  <div class="sidebar">
-    <div class="sidebar-inner">
-
-      <div class="compare-box">
-        <h3 class="compare-title">Compare Countries</h3>
-
-        <div class="country-dropdown-container">
-          <div class="country-dropdown country-dropdown-2 form-control js-country-2">
-            <div class="flash"></div>
-          </div>
-        </div>
-
-        <ul class="numbers-container">
-          <li class="number-container">
-            <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
-            <div class="number js-wind-2"></div>
-            <div class="unit">Terajoule</div>
-          </li>
-          <li class="number-container">
-            <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
-            <div class="number js-water-2"></div>
-            <div class="unit">Terajoule</div>
-          </li>
-          <li class="number-container">
-            <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
-            <div class="number js-solar-2"></div>
-            <div class="unit">Terajoule</div>
-          </li>
-          <li class="number-container">
-            <div class="icon"><img src="images/greenenergy.svg" alt="green energy"></div>
-            <div class="number js-green-2"></div>
-            <div class="unit">Green energy</div>
-          </li>
-        </ul>
-
-        <div class="country-dropdown-container">
-          <div class="country-dropdown country-dropdown-1 form-control js-country-1">
-            <div class="flash"></div>
-          </div>
-        </div>
-
-        <ul class="numbers-container">
-          <li class="number-container">
-            <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
-            <div class="number js-wind-1"></div>
-            <div class="unit">Terajoule</div>
-          </li>
-          <li class="number-container">
-            <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
-            <div class="number js-water-1"></div>
-            <div class="unit">Terajoule</div>
-          </li>
-          <li class="number-container">
-            <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
-            <div class="number js-solar-1"></div>
-            <div class="unit">Terajoule</div>
-          </li>
-          <li class="number-container">
-            <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
-            <div class="number js-green-1"></div>
-            <div class="unit">Green energy</div>
-          </li>
-        </ul>
-
-        <!-- <a href="#" class="compare-button">Compare Selection <img class="arrow-right" src="images/small-arrow-right-white.svg"></a> -->
+        <p class="made-by">Proudly made by: Dennis van Bennekom, Rosa Schuurmans, Sven ten Voorde, Donny Hogeterp and Robin Tuijnenburg.</p>
       </div>
-      
-      <div class="filter-box">
-        <h4 class="filter-title">Determine circle size by:</h4>
+    </div>
 
-        <ul class="filter-list">
-          <li class="filter"> <input id="population" class="js-populatie-filter" checked type="radio" name="filter" value="population">
-            <label for="population">Population</label></li>
-            <li class="filter"> <input id="surface-area" class="js-oppervlakte-filter" type="radio" name="filter" value="surface area">
-              <label for="surface-area">Surface Area</label></li>
-              <li class="filter"> <input id="wind-energy" class="js-wind-filter" type="radio" name="filter" value="wind energy">
-                <label for="wind-energy">Wind Energy</label></li>
-                <li class="filter"> <input id="hydro-energy" class="js-hydro-filter" type="radio" name="filter" value="hydro energy">
-                  <label for="hydro-energy">Hydro Energy</label></li>
-                  <li class="filter"> <input id="solar-energy" type="radio"  class="js-solar-filter" name="filter" value="solar energy">
-                    <label for="solar-energy">Solar Energy</label></li>
-                  </ul>
-                </div>
+
+    <div class="vis-full">
+
+      <div class="overlay"></div>
+
+      <div class="scene_element scene_element--fadeinleft">
+        <div class="vis-wrap">
+
+          <div class="vis-wrap-inner">
+            <div class="info-box">
+              <h1 class="vis-title">The Green Energy Race</h1>
+              <a class="link info-open" href="javascript:void(0)">about this project</a>
+            </div>
+
+            <div class="vis-container">
+              <div class="vis"></div>
+
+              <div class="tooltip js-tooltip">
+                <h1 class="js-country">Netherlands</h1>
+                <h2><span class="number js-green-percentage">33</span><span class="number">%</span><span><span class="unit">Green Energy</span></h2>
+                <h2><span class="number js-green-total">666</span><span class="unit">Total Green (in tj)</span></h2>
+                <h2><span class="number js-grey-total">999</span><span class="unit">Total Grey (in tj)</span></h2>
               </div>
+            </div>
+
+            <div class="timeline-buttons">
+              <p class="timeline-small">Change year</p>
+              <div class="button-prev"><img src="images/arrow-left-blue.svg" alt="back"></div>
+              <div class="button-next"><img src="images/arrow-right-blue.svg" alt="forth"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- build:js scripts/vendor.js -->
-      <!-- bower:js -->
-      <script src="/bower_components/jquery/dist/jquery.js"></script>
-      <script src="/bower_components/velocity/velocity.js"></script>
-      <script src="/bower_components/velocity/velocity.ui.js"></script>
-      <script src="/bower_components/d3/d3.js"></script>
-      <script src="/bower_components/smoothstate/src/jquery.smoothState.js"></script>
-      <script src="/bower_components/hammerjs/hammer.js"></script>
-      <script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
-      <script src="/bower_components/underscore/underscore.js"></script>
-      <script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
-      <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-      <script src="/bower_components/jquery-simple-combobox/js/jquery.scombobox.min.js"></script>
-      <!-- endbower -->
-      <!-- endbuild -->
+      <div class="scene_element scene_element--fadeinleft timeline-container">
+        <div class="timeline">
+          <div class="timeline-current"></div>
+          <div class="timeline-year">1990</div>
+        </div>
+      </div>
 
-      <!-- build:js scripts/main.js -->
-      <script src="scripts/main.js"></script>
-      <script src="scripts/vis.js"></script>
-      <!-- endbuild -->
+      <div class="scene_element scene_element--fadeinright">
+        <div class="sidebar">
+          <div class="sidebar-inner">
 
-      <script>run();</script>
+            <div class="compare-box">
+              <h3 class="compare-title">Compare Countries</h3>
 
-    </body>
-    </html>
+              <div class="country-dropdown-container">
+                <div class="country-dropdown country-dropdown-2 form-control js-country-2"></div>
+              </div>
+
+              <ul class="numbers-container">
+                <li class="number-container">
+                  <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+                  <div class="number js-wind-2"></div>
+                  <div class="unit">Terajoule</div>
+                </li>
+                <li class="number-container">
+                  <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+                  <div class="number js-water-2"></div>
+                  <div class="unit">Terajoule</div>
+                </li>
+                <li class="number-container">
+                  <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+                  <div class="number js-solar-2"></div>
+                  <div class="unit">Terajoule</div>
+                </li>
+                <li class="number-container">
+                  <div class="icon"><img src="images/greenenergy.svg" alt="green energy"></div>
+                  <div class="number js-green-2"></div>
+                  <div class="unit">Green energy</div>
+                </li>
+              </ul>
+
+              <div class="country-dropdown-container">
+                <div class="country-dropdown country-dropdown-1 form-control js-country-1"></div>
+              </div>
+
+              <ul class="numbers-container">
+                <li class="number-container">
+                  <div class="icon"><img src="images/windenergy.svg" alt="Wind energy"></div>
+                  <div class="number js-wind-1"></div>
+                  <div class="unit">Terajoule</div>
+                </li>
+                <li class="number-container">
+                  <div class="icon"><img src="images/waterenergy.svg" alt="Water energy"></div>
+                  <div class="number js-water-1"></div>
+                  <div class="unit">Terajoule</div>
+                </li>
+                <li class="number-container">
+                  <div class="icon"><img src="images/solarenergy.svg" alt="Solar energy"></div>
+                  <div class="number js-solar-1"></div>
+                  <div class="unit">Terajoule</div>
+                </li>
+                <li class="number-container">
+                  <div class="icon"><img src="images/greenenergy.svg" alt="Green energy"></div>
+                  <div class="number js-green-1"></div>
+                  <div class="unit">Green energy</div>
+                </li>
+              </ul>
+
+              <a href="#" class="compare-button">Compare Selection <img class="arrow-right" src="images/small-arrow-right-white.svg"></a>
+            </div>
+
+            <div class="filter-box">
+              <h4 class="filter-title">Determine circle size by:</h4>
+
+              <ul class="filter-list">
+                <li class="filter"> <input id="population" class="js-populatie-filter" checked type="radio" name="filter" value="population">
+                  <label for="population">Population</label></li>
+                  <li class="filter"> <input id="surface-area" class="js-oppervlakte-filter" type="radio" name="filter" value="surface area">
+                    <label for="surface-area">Surface Area</label></li>
+                    <li class="filter"> <input id="wind-energy" class="js-wind-filter" type="radio" name="filter" value="wind energy">
+                      <label for="wind-energy">Wind Energy</label></li>
+                      <li class="filter"> <input id="hydro-energy" class="js-hydro-filter" type="radio" name="filter" value="hydro energy">
+                        <label for="hydro-energy">Hydro Energy</label></li>
+                        <li class="filter"> <input id="solar-energy" type="radio"  class="js-solar-filter" name="filter" value="solar energy">
+                          <label for="solar-energy">Solar Energy</label></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- build:js scripts/vendor.js -->
+          <!-- bower:js -->
+          <script src="/bower_components/jquery/dist/jquery.js"></script>
+          <script src="/bower_components/velocity/velocity.js"></script>
+          <script src="/bower_components/velocity/velocity.ui.js"></script>
+          <script src="/bower_components/d3/d3.js"></script>
+          <script src="/bower_components/smoothstate/src/jquery.smoothState.js"></script>
+          <script src="/bower_components/hammerjs/hammer.js"></script>
+          <script src="/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+          <script src="/bower_components/underscore/underscore.js"></script>
+          <script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
+          <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+          <script src="/bower_components/jquery-simple-combobox/js/jquery.scombobox.min.js"></script>
+          <!-- endbower -->
+          <!-- endbuild -->
+
+          <!-- build:js scripts/main.js -->
+          <script src="scripts/main.js"></script>
+          <script src="scripts/vis.js"></script>
+          <!-- endbuild -->
+
+          <script>run();</script>
+
+        </body>
+        </html>
