@@ -1,4 +1,7 @@
 function run() {
+  /*
+   * Load data
+   */
   d3.csv('scripts/data.csv', function(d) {
     return {
       bnppp:       +d.BNPpp,
@@ -15,6 +18,7 @@ function run() {
       percentage:  +d.percentageGroen
     };
   }, function(error, d) {
+    // Format data
     var data = [];
 
     for (var i = 0; i < d.length; i += 23) {
@@ -52,6 +56,7 @@ function run() {
       data.push(newObject);
     }
     
+    // Setup the agreements
     var agreements = [
       { name: '0%', value: '0' },
       { name: 'Europe Target by 2020 - 20%', value: '20' },
@@ -61,6 +66,7 @@ function run() {
       { name: '', 'value': '100'}
     ];
 
+    // Set initial vars and positions
     var HEIGHT = window.innerHeight - window.innerHeight / 10;
         WIDTH = HEIGHT;
 
@@ -71,20 +77,28 @@ function run() {
 
     $('.js-tooltip').hide();
 
-    var selected = [Math.round(Math.random() * data.length), Math.round(Math.random() * data.length)];
-    var maxSelected = 2;
+    // Set the selected countries on random at start
+    var selected = [
+      Math.round(Math.random() * data.length), 
+      Math.round(Math.random() * data.length)
+    ];
 
-    var currentYear = 0;
-    var currentFilter = 'hydro';
+    var currentYear = 0; // Start at 1990
+    var currentFilter = 'populatie'; // Default filter is "populatie"
 
+    var canScroll = true;
+
+    // Setup the scales
     var rd = d3.scale.linear().domain([100, 0]).range([50, WIDTH / 2 - 60]);
     var inwoners = d3.scale.linear().domain([0, 1300000000]).range([5, 60]);
     var yearScale = d3.scale.linear().domain([0, 22]).range([5, 95]);
 
+    // Save the index in the object itself, used later
     data.forEach(function(d, i) {
       d.s = i;
     });
 
+    // Create SVG
     var svg = d3.select('.vis').append('svg')
         .attr('width', WIDTH)
         .attr('height', HEIGHT);
@@ -151,39 +165,37 @@ function run() {
           tooltip.css('top', newY + r / 1.2);
           tooltip.css('left', newX + r / 1.2);
 
+          // Set tooltip text
           $('.js-country').text(d.land);
           $('.js-green-percentage').text(Math.round(d.percentage[currentYear]));
           $('.js-green-total').text(Math.round(d.total[currentYear]));
           var totalGrey = d.total[currentYear] / d.percentage[currentYear] * 100;
           $('.js-grey-total').text(Math.round(totalGrey));
+        
+          if (isNaN(totalGrey)) $('.js-grey-total').text('-');
+
+          // Switch tooltip location if its on the right or the bottom
+          var tooltipWidth = tooltip.outerWidth();
+          var tooltipHeight = tooltip.outerHeight();
+
+          if (cx > 0) {
+            tooltip.css('left', newX - tooltipWidth - r / 1.2);
+          }
+
+          if (cy > 0) {
+            tooltip.css('top', newY - tooltipHeight - r / 1.2);
+          }
         })
         .on('mouseleave', function(d, i) {
           $('.js-tooltip').hide();
         })
         .on('click', function(d, i) {
           select(i + 1);
+
+          $('.country-dropdown .flash').css('opacity', 1);
+
+          setTimeout(function() { $('.country-dropdown .flash').css('opacity', 0); }, 100);
         });
-
-    function select(index) {
-      if (selected.indexOf(index) < 0) {
-        if (selected.length > 1) selected.splice(0, 1);
-        
-        selected.push(index);
-
-        updateData();
-      }
-    }
-
-    function selectFix(num, index) {
-      selected[num] = index;
-      updateData();
-    }
-
-    function getRaceData() {
-      return selected.map(function(i) {
-        return data[i];
-      });
-    }
 
     var centerText = g.append('text')
         .attr('text-anchor', 'middle')
@@ -196,13 +208,53 @@ function run() {
         .attr('class', 'center-text unit')
         .attr('y', 13);
 
-    d3.select('.timeline')
-        .on('input', function() {
-          changeYear(+this.value);
-        });
+    /*
+     * Select a country
+     */
+    function select(index) {
+      if (selected.indexOf(index) < 0) {
+        if (selected.length > 1) selected.splice(0, 1);
+        
+        selected.push(index);
 
-    var canScroll = true;
+        updateData();
+      }
+    }
+    
+    /*
+     * Select a fixed country
+     */
+    function selectFix(num, index) {
+      selected[num] = index;
+      updateData();
+    }
 
+    /*
+     * change the current year
+     */
+    function changeYear(year) {
+      $('.js-tooltip').hide();
+
+      d3.selectAll('.label')
+        .remove();
+
+      currentYear = year;
+
+      if (currentYear < 0) { currentYear = 0; }
+      if (currentYear > 22) {currentYear = 22; }
+
+      $('.timeline-current').css('width', yearScale(currentYear) + '%');
+      $('.timeline-year').css('left', yearScale(currentYear) - 2.5 + '%');
+      $('.timeline-year').text(1990 + currentYear);
+
+      updateData();
+    };
+    
+    /*
+     * Events
+     */
+
+    // Use arrow keys to browse the years
     $(document).keydown(function(e) {
       switch(e.which) {
         case 37:
@@ -231,24 +283,7 @@ function run() {
       }
     }
 
-    function changeYear(year) {
-      $('.js-tooltip').hide();
-
-      d3.selectAll('.label')
-        .remove();
-
-      currentYear = year;
-
-      if (currentYear < 0) { currentYear = 0; }
-      if (currentYear > 22) {currentYear = 22; }
-
-      $('.timeline-current').css('width', yearScale(currentYear) + '%');
-      $('.timeline-year').css('left', yearScale(currentYear) - 2.5 + '%');
-      $('.timeline-year').text(1990 + currentYear);
-
-      updateData();
-    };
-
+    // Create the dropdowns
     var countryDropdown1 = $('.country-dropdown-1');
     var countryDropdown2 = $('.country-dropdown-2');
 
@@ -273,7 +308,8 @@ function run() {
       var current = this.value;
       selectFix(1, +current);
     });
-
+    
+    // Create timeline events
     var timeline = $('.timeline');
 
     timeline.on('click', function(e) {
@@ -286,6 +322,7 @@ function run() {
       changeYear(year);
     });
 
+    // The buttons in the top right to go through the years
     $('.button-prev').on('click', function() {
       changeYear(currentYear - 1);
     });
@@ -294,6 +331,7 @@ function run() {
       changeYear(currentYear + 1);
     });
 
+    // Update all the numbers etc
     function updateData() {
       filter();
 
@@ -324,6 +362,7 @@ function run() {
       $(country2).css('fill', '#D50046');
     }
 
+    // Filters on the categories and animates the circles
     function filter() {
       var filter = currentFilter;
       
@@ -350,6 +389,7 @@ function run() {
         .attr('r', function(d, i) { return scale(d[filter][currentYear]); });
     }
 
+    // Filter events
     $('.js-populatie-filter').on('click', function() {
       currentFilter = 'populatie';
       filter();
@@ -383,10 +423,9 @@ function run() {
             return false;
         }
     });
-
+  
+    // Render at start
     updateData();
-
-    currentFilter = 'populatie';
     filter();
   });
 }

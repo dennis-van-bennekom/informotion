@@ -56,17 +56,18 @@
 	color: @white;
 }
 
-.update {
+.country-dropdown {
 	position: relative;
 
-	&:before {
-		content: "";
+	.flash {
 		position: absolute;
 		display: block;
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
-		background-color: rgba(255,255,255,0.4);
+    opacity: 0;
+    transition: 0.1s opacity ease-out;
+		background-color: rgba(255,255,255,0.15);
 	}
 }
